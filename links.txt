@@ -1,0 +1,7 @@
+Autosuggestion plugin for zsh: https://github.com/zsh-users/zsh-autosuggestions
+
+Powerlevel10k theme: https://github.com/romkatv/powerlevel10k
+
+Patched nerd fonts: https://github.com/ryanoasis/nerd-fonts
+
+Lunarvim: https://github.com/LunarVim/LunarVim
