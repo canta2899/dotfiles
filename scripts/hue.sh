@@ -1,16 +1,16 @@
 #!/bin/sh
 
-# +-------------------------------------------------+
-# + A simple shell script made in order to talk		+
-# + to the philips hue api and perform simple tasks +
-# + 												+
-# +	- hue on		[turns on the lights]			+
-# + - hue off 		[turns off the lights]			+
-# + - hue bri 		[sets the brightness]			+
-# + - hue scenes    [set a new scene]               +
-# + 												+
-# + Made by canta2899         						+
-# +-------------------------------------------------+
+# +-------------------------------------------------
+# + A simple shell script made in order to talk		
+# + to the philips hue api and perform simple tasks 
+# + 												
+# +	- hue on		[turns on the lights]			
+# + - hue off 		[turns off the lights]			
+# + - hue bri 		[sets the brightness]			
+# + - hue scenes    [set a new scene]               
+# + 												
+# + Made by canta2899         						
+# +-------------------------------------------------
 
 
 
