@@ -78,10 +78,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#606060"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
+    git
     z
-	docker
-	docker-compose
+    docker
+    docker-compose
     zsh-autosuggestions
     dotnet
     fzf
