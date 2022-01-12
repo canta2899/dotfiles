@@ -1,13 +1,3 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -93,14 +83,17 @@ ls.snippets = {
     markdown = {
         s("pandocimg", {
 			t({
-                "\\centering",
                 "\\begin{figure}[H]",
+                "\\centering",
                 "\\includegraphics[width=250px]{}",
                 "\\end{figure}"
             }),
 		}),
     },
 }
+
+lvim.transparent_window = true
+
 
 -- generic LSP settings
 
@@ -181,6 +174,7 @@ ls.snippets = {
 --     },
 -- }
 
+-- To set commands with specific triggers according to the file type
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.md", "set nospell" }
 -- }

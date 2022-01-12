@@ -15,32 +15,29 @@ scripts_dir=$DIR_PATH/scripts
 mkdir -p $sqlite3_dir $tmux_dir $vim_dir $zsh_dir $extra_dir $lvim_dir $scripts_dir
 
 # Sqlite3
-cp ~/.sqliterc $sqlite3_dir/.sqliterc
+cp $HOME/.sqliterc $sqlite3_dir/.sqliterc
 
 # Tmux
-cp ~/.tmux.conf $tmux_dir/.tmux.conf
+cp $HOME/.tmux.conf $tmux_dir/.tmux.conf
 
 # Using both neovim and lunarvim
 
-# Lunar vim 
+# Lunarvim 
+cp -r $HOME/.config/lvim/ $lvim_dir
 
-cp -r ~/.config/lvim/ $lvim_dir
+# Neovim 
+cp -r $HOME/.config/nvim/after $vim_dir/
+cp -r $HOME/.config/nvim/init.vim $vim_dir/
+cp -r $HOME/.config/nvim/snippets $vim_dir/
 
-# nvim
-cp ~/.config/nvim/init.vim $vim_dir/init.vim
-cp -r ~/.config/nvim/after $vim_dir/
-cp -r ~/.config/nvim/snippets $vim_dir/
-
-# zsh dotfiles
-
-cp ~/.zshrc $zsh_dir/.zshrc
-cp ~/.zprofile $zsh_dir/.zprofile
+# ZSH dotfiles
+cp $HOME/.zshrc $zsh_dir/.zshrc
+cp $HOME/.zprofile $zsh_dir/.zprofile
 
 cp -r $HOME/development/scripts/ $scripts_dir
 
 # EXTRA
-cp ~/.notes_makefile $extra_dir/
-cp ~/development/projects/realpath/realpath.c $extra_dir/
+cp $HOME/development/projects/realpath/realpath.c $extra_dir/
 cp $HOME/development/projects/endianess_c/endianess.c $extra_dir/
 
 # Performs eventual git commit 

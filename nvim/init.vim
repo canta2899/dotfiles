@@ -127,6 +127,8 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'akinsho/toggleterm.nvim'
 
+Plug 'windwp/nvim-autopairs'
+
 " Initialize plugin system
 call plug#end()
 "
@@ -163,7 +165,7 @@ lua <<EOF
       open_mapping = '<C-t>',
       shade_filetypes = {},
       shade_terminals = true,
-      shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+      shading_factor = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
       start_in_insert = true,
       insert_mappings = true, -- whether or not the open mapping applies in insert mode
       persist_size = true,
@@ -176,8 +178,8 @@ lua <<EOF
         -- see :h nvim_open_win for details on borders however
         -- the 'curved' border is a custom border type
         -- not natively supported but implemented in this plugin.
-        border = 'curved',
-        winblend = 3,
+        border = 'single',
+        -- winblend = 0,
         highlights = {
           border = "Normal",
           background = "Normal",
@@ -185,11 +187,13 @@ lua <<EOF
       }
     }
 
+    require('nvim-autopairs').setup{}
+
     local catppuccin = require("catppuccin")
 
     -- configure it
     require("catppuccin").setup {
-        transparent_background = false,
+        transparent_background = true,
         term_colors = false,
         styles = {
             comments = "italic",
