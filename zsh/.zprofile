@@ -25,11 +25,14 @@ alias tl='tmux ls'
 alias t='tmux'
 
 alias ta='tmux attach -t'
-
 alias vim="lvim"
+
 
 # Just in case the original /bin/ls is needed
 alias binls="/bin/ls"
+
+# Like in powershell
+alias ii="open"
 
 . $HOME/development/scripts/hue.sh
 

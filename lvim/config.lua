@@ -8,7 +8,7 @@ lvim.keys.normal_mode["ss"] = ":split .<Return>"
 lvim.keys.normal_mode["<S-Tab>"] = ":bprevious<CR>"
 lvim.keys.normal_mode["<Tab>"] = ":bnext<CR>"
 
-vim.cmd("set tabstop=4 shiftwidth=4 expandtab")
+-- vim.cmd("set tabstop=4 shiftwidth=4 expandtab")
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
