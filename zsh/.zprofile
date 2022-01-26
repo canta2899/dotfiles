@@ -12,7 +12,7 @@ alias ztc="zerotier-cli"
 
 alias ls='logo-ls'
 
-alias lsg='logo-ls -D'
+alias lg='logo-ls -D'
 
 alias lsort="logo-ls | sort -n"
 
@@ -25,11 +25,12 @@ alias tl='tmux ls'
 alias t='tmux'
 
 alias ta='tmux attach -t'
+
 alias vim="lvim"
 
+alias nc="netcat"
 
-# Just in case the original /bin/ls is needed
-alias binls="/bin/ls"
+alias lss="/bin/ls"
 
 # Like in powershell
 alias ii="open"
@@ -46,7 +47,7 @@ PATH="/usr/local/sbin:$PATH"
 # PostgreSQL
 PATH="$PATH:/Applications/Postgres.app/Contents/Versions/13/bin"
 # Yarn
-PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
 # Python
 PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 # Ruby
@@ -58,19 +59,25 @@ PATH="/usr/local/opt/php@7.4/bin:$PATH"
 PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 PATH="/usr/local/opt/httpd/bin:$PATH"
 # Flutter
-PATH="/Users/andrea/development/flutter/bin:$PATH"
+PATH="$PATH:$HOME/development/flutter/bin"
 # Global node 
 PATH="$HOME/.npm-global/bin:$PATH"
-
+# Go
+PATH="$PATH:$HOME/go/bin"
+# Java
+PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH
-
 
 # -- VARIABLES --
 
 source ~/.secrets
 
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
+# Ruby flags
+# export LDFLAGS="-L/usr/local/opt/ruby/lib"
+# export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+# Java flags
+# export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -114,8 +121,10 @@ envoff(){
 	deactivate > /dev/null 2>&1
 	if [ $? -eq 0 ]; then
 		echo "Environment deactivated"
-	else
+    return 0
+  else
 		echo "No environment activated"
+    return 1
 	fi
 }
 
