@@ -11,7 +11,7 @@ fonts=(
 )
 
 for file in ${fonts[*]}; do
-    wget $file -O $DIR_PATH/$FONTS_DIR_NAME/$(basename $file)
+    curl -L $file -o $DIR_PATH/$FONTS_DIR_NAME/$(basename $file)
 done
 
 echo "Fonts downloaded"

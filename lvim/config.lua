@@ -9,11 +9,13 @@ lvim.keys.normal_mode["<S-Tab>"] = ":bprevious<CR>"
 lvim.keys.normal_mode["<Tab>"] = ":bnext<CR>"
 
 vim.cmd("set tabstop=4 shiftwidth=4 expandtab")
+vim.cmd("set wrap")
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["ss"] = ":vsplit ./<cr>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
@@ -166,13 +168,13 @@ lvim.transparent_window = true
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+    {"lervag/vimtex"}
+    -- {
+    --   "folke/trouble.nvim",
+    --   cmd = "TroubleToggle",
+    -- },
+}
 
 -- To set commands with specific triggers according to the file type
 -- lvim.autocommands.custom_groups = {
