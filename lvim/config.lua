@@ -7,6 +7,8 @@ lvim.keys.normal_mode["ss"] = ":split .<Return>"
 
 lvim.keys.normal_mode["<S-Tab>"] = ":bprevious<CR>"
 lvim.keys.normal_mode["<Tab>"] = ":bnext<CR>"
+lvim.keys.normal_mode["<C-A-Left"] = ":resize -2<CR>"
+lvim.keys.normal_mode["<C-A-Left"] = ":resize -2<CR>"
 
 vim.cmd("set tabstop=4 shiftwidth=4 expandtab")
 vim.cmd("set wrap")
@@ -16,6 +18,12 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["ss"] = ":vsplit ./<cr>"
+
+lvim.keys.normal_mode["<A-Up>"] = ":resize -2<CR>"
+lvim.keys.normal_mode["<A-Down>"] = ":resize +2<CR>"
+lvim.keys.normal_mode["<A-Left>"] = ":vertical resize -2<CR>"
+lvim.keys.normal_mode["<A-Right>"] = ":vertical resize +2<CR>"
+
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
@@ -71,6 +79,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "go",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -107,8 +116,10 @@ lvim.transparent_window = true
 -- vim.list_extend(lvim.lsp.override, { "pyright" })
 
 -- ---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pylsp", opts)
+-- local opts = {} -- check the lspconfig documentation for a list of all possible options
+
+require("lspconfig").gopls.setup{} -- Setting up go language server
 
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -169,7 +180,7 @@ lvim.transparent_window = true
 
 -- Additional Plugins
 lvim.plugins = {
-    {"lervag/vimtex"}
+ {"lervag/vimtex"}
     -- {
     --   "folke/trouble.nvim",
     --   cmd = "TroubleToggle",
