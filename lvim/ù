@@ -178,6 +178,16 @@ require("lspconfig").gopls.setup{} -- Setting up go language server
 -- Additional Plugins
 lvim.plugins = {
     {"lervag/vimtex"},
+    {
+      'wfxr/minimap.vim',
+      run = "cargo install --locked code-minimap",
+      cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+      config = function ()
+        vim.cmd ("let g:minimap_width = 10")
+        vim.cmd ("let g:minimap_auto_start = 1")
+        vim.cmd ("let g:minimap_auto_start_win_enter = 1")
+      end,
+    },
     {"ctrlpvim/ctrlp.vim"},
 
     -- {

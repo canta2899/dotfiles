@@ -1,9 +1,12 @@
 #!/bin/sh
 
 # --- DIRECTORIES ----
+os=$(uname)
 
-# If on Macos, realpath is in extra folder and can 
-# be compiled in order to install the binary
+if [ $os = "Darwin" ]; then
+    echo "On OSX realpath is not available. Compile extra/realpath.c."
+    return 1
+fi;
 
 DIR_PATH=$(dirname $(realpath $0))
 
@@ -27,6 +30,7 @@ cp $HOME/.sqliterc $sqlite3_dir/.sqliterc
 
 
 # ---- TMUX ---------------
+
 cp $HOME/.tmux.conf $tmux_dir/.tmux.conf
 
 
@@ -34,24 +38,22 @@ cp $HOME/.tmux.conf $tmux_dir/.tmux.conf
 # --- NEOVIM ---------------
 
 # Using both neovim and lunarvim
-
-# Lunarvim 
-cp -r $HOME/.config/lvim/ $lvim_dir
-
-# Neovim 
-cp -r $HOME/.config/nvim/after $vim_dir/
+cp -r $HOME/.config/lvim/ $lvim_dir  # LunarVim
+cp -r $HOME/.config/nvim/after $vim_dir/  # Neovim
 cp -r $HOME/.config/nvim/init.vim $vim_dir/
 cp -r $HOME/.config/nvim/snippets $vim_dir/
 
 
 
 # --- ZSH ------------------
+
 cp $HOME/.zshrc $zsh_dir/.zshrc
 cp $HOME/.zprofile $zsh_dir/.zprofile
 
 
 
 # --- SCRIPTS --------------
+
 # Scripts are all kept in the script folder and eventually
 # sourced or symlinked somewhere in the path
 cp -r $HOME/development/scripts/ $scripts_dir
@@ -59,6 +61,7 @@ cp -r $HOME/development/scripts/ $scripts_dir
 
 
 # --- EXTRA ----------------
+
 cp $HOME/development/projects/realpath/realpath.c $extra_dir/
 cp $HOME/development/projects/endianess_c/endianess.c $extra_dir/
 

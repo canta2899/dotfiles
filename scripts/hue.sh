@@ -132,9 +132,10 @@ _hue() {
 		names=( $(echo "$scenes" | jq '.name' | sed -e 's/ /_/g') )
 		ids=( $(echo "$scenes" | jq '.key') )
 
-		for ((i=0; i < ${#names[@]}; i++))
+		echo -e "0 - Do Nothing"
+		for ((i=1; i < ${#names[@]}; i++))
 		do
-			echo -e "$i\t${names[i]}"
+			echo -e "$i - ${names[i]}"
 		done
 
 		echo -en "\n> "
