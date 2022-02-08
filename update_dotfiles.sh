@@ -1,11 +1,10 @@
 #!/bin/sh
 
 # --- DIRECTORIES ----
-os=$(uname)
 
-if [ $os = "Darwin" ]; then
+if [ $(uname) != "Darwin" ]; then
     echo "On OSX realpath is not available. Compile extra/realpath.c."
-    return 1
+    exit 1
 fi;
 
 DIR_PATH=$(dirname $(realpath $0))

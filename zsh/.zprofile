@@ -32,7 +32,7 @@ alias nc="netcat"
 
 alias lss="/bin/ls"
 
-alias ii="open"   # Like in powershell
+alias s="open"
 
 alias lz="lazygit"
 
@@ -72,13 +72,6 @@ export PATH
 # -- VARIABLES --
 
 source ~/.secrets
-
-# Ruby flags
-# export LDFLAGS="-L/usr/local/opt/ruby/lib"
-# export CPPFLAGS="-I/usr/local/opt/ruby/include"
-
-# Java flags
-# export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced

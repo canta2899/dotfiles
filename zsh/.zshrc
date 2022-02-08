@@ -85,6 +85,8 @@ plugins=(
     zsh-autosuggestions
     dotnet
     fzf
+    cp
+    zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,3 +112,9 @@ unset __conda_setup
 source $HOME/.zprofile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Sourcing zsh-interactive-cd manually because for odd reasons 
+# doesn't work when added to the plugins list or enabled through
+# omz command
+
+. $HOME/.oh-my-zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
