@@ -210,3 +210,17 @@ makepdf(){
 	fi
 }	
 
+safetoken(){
+    
+    # copies github token on copy buffer or clears the buffer
+    # the token in sourced as an environment variable
+    if [ "$1" = "clear" ]; then
+        echo "" | pbcopy
+        return 0
+    fi
+
+    echo $GH | pbcopy
+    echo "Token copied, use \"safetoken clear\" to remove"
+    return 0
+}
+
