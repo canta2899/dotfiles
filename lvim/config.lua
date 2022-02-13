@@ -191,3 +191,4 @@ lvim.plugins = {
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.md", "set nospell" }
 -- }
+
