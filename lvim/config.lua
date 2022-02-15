@@ -26,6 +26,16 @@ lvim.keys.normal_mode["<A-Right>"] = ":vertical resize +2<CR>"
 lvim.keys.normal_mode["d"] = "\"_d" -- real delete instead of cut
 lvim.keys.normal_mode["mn"] = ":Minimap<CR>"
 
+-- https://github.com/LunarVim/LunarVim/issues/1857
+lvim.keys.insert_mode["<A-j>"] = false
+lvim.keys.insert_mode["<A-k>"] = false
+lvim.keys.normal_mode["<A-j>"] = false
+lvim.keys.normal_mode["<A-k>"] = false
+lvim.keys.visual_block_mode["<A-j>"] = false
+lvim.keys.visual_block_mode["<A-k>"] = false
+lvim.keys.visual_block_mode["J"] = false
+lvim.keys.visual_block_mode["K"] = false
+
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 -- local _, actions = pcall(require, "telescope.actions")
