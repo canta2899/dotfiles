@@ -1,5 +1,7 @@
 ## User configuration
 
+unsetopt nomatch
+
 # -- ALIASES --
 
 alias icloud="cd /Users/andrea/Library/Mobile\ Documents/com~apple~CloudDocs"

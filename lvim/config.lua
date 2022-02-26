@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.colorscheme = "onedarker"
 
 lvim.keys.normal_mode["ss"] = ":split .<Return>"
@@ -10,7 +10,10 @@ lvim.keys.normal_mode["<Tab>"] = ":bnext<CR>"
 lvim.keys.normal_mode["<C-A-Left"] = ":resize -2<CR>"
 lvim.keys.normal_mode["<C-A-Left"] = ":resize -2<CR>"
 
-vim.cmd("set tabstop=4 shiftwidth=4 expandtab")
+vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.cmd("set wrap")
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
