@@ -62,8 +62,6 @@ cp -r $HOME/development/scripts/ $scripts_dir
 # --- EXTRA ----------------
 
 cp $HOME/development/projects/realpath/realpath.c $extra_dir/
-cp $HOME/development/projects/endianess_c/endianess.c $extra_dir/
-
 
 
 # Performs eventual git commit 

@@ -199,7 +199,6 @@ lvim.plugins = {
     -- },
 }
 
-
 -- To set commands with specific triggers according to the file type
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.md", "set nospell" }

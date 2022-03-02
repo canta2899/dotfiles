@@ -38,6 +38,8 @@ alias s="open"
 
 alias lz="lazygit"
 
+alias mg="multigrep"
+
 . $HOME/development/scripts/hue.sh
 
 
@@ -85,11 +87,11 @@ export LANG="en_US.UTF-8"
 # Returns human readable weight of file/directory calculated recursively
 
 we(){
-	if [[ $# -eq 1 ]] then
-		du -d 0 -h $1
-	else
-		echo "Specific a path to a file"
-	fi
+    if [[ $# -eq 1 ]] then
+        du -d 0 -h $1
+    else
+        echo "Specific a path to a file"
+    fi
 }
 
 # Quick wrapper to activate and deactivate python virtual environments
@@ -97,92 +99,36 @@ we(){
 # And then "envoff" to deactivate the current environment if activated
 
 envon(){
-	RED='\033[0;31m'
-	GREEN='\033[0;32m'
-	ORANGE='\033[1;33m'
-	if [[ $# -eq 1 ]]; then
-		current_path="${1}/bin/activate"
-		source ${current_path} 2>/dev/null
-		if [[ $? -eq 0 ]]; then
-			echo "${GREEN}Python env activated.\nUse \"envoff\" to deactivate the environment"
-		else
-			echo "${RED}An error occoured. Does $current_path exist?" 
-		fi
-	else
-		echo "${ORANGE}Please provide a valid path.\nEx. envon /my/path"
-	fi
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    ORANGE='\033[1;33m'
+    if [[ $# -eq 1 ]]; then
+        current_path="${1}/bin/activate"
+        source ${current_path} 2>/dev/null
+        if [[ $? -eq 0 ]]; then
+            echo "${GREEN}Python env activated.\nUse \"envoff\" to deactivate the environment"
+        else
+            echo "${RED}An error occoured. Does $current_path exist?" 
+        fi
+    else
+        echo "${ORANGE}Please provide a valid path.\nEx. envon /my/path"
+    fi
 }
 
 envoff(){
-	deactivate > /dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo "Environment deactivated"
+    deactivate > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "Environment deactivated"
     return 0
   else
-		echo "No environment activated"
+        echo "No environment activated"
     return 1
-	fi
-}
-
-# Wrapper around spleeter to split an audio file in vocals iso + backing track
-# Usage: "split [path_to_audio_file]"
-
-split(){
-	if [[ $# -eq 1 ]]; then
-		filename=$(basename $1)
-		filename_noext=`echo $filename | grep -o "^.*[^\.]{"`
-		cp $1 ~/development/repos/spleeter/
-		(
-			cd ~/development/repos/spleeter
-			conda activate spleeter
-			spleeter separate -p spleeter:2stems -o output $filename
-			conda deactivate
-			open ~/development/repos/spleeter/output/
-		)
-		mv ~/development/repos/spleeter/$filename ~/development/repos/spleeter/output/$filename_noext/$filename
-	else
-		echo "Usage: split audio_file.mp3"
-		echo "Result: opens a folder with audio splitted in backing_track and vocals isolated"
-	fi
-}
-
-# Builds a "notes" directory template (with makefile) ready to take markdown notes
-
-makenotesenv(){
-	if [ -d "notes" ]; 
-	then
-  		echo "notes directory already exists"
-		return 1
-	fi
-	mkdir -p notes
-    
-    cat <<-'EOF' > notes/Makefile
-DIRNAME := pdfs
-
-MDFOLDER = ./
-
-MARKDOWNS := $(wildcard $(MDFOLDER)/*.md)
-
-# PDFS=$(MARKDOWNS:.md=.pdf)
-
-SOURCES := $(patsubst %.md,%.pdf,$(subst $(MDFOLDER),$(DIRNAME),$(MARKDOWNS)))
-
-$(DIRNAME)/%.pdf: $(MDFOLDER)/%.md
-    @echo "Building $@..."
-    @pandoc -f markdown-implicit_figures $^ -o $@
-
-.PHONY : all
-
-all: $(SOURCES)
-EOF
-
-	mkdir -p notes/img
-	mkdir -p notes/pdfs
+    fi
 }
 
 whatismyip(){
-	curl https://api.ipify.org\?format\=text
-	echo "\n"
+    curl https://api.ipify.org\?format\=text
+    echo "\n"
 }
 
 md2pdf(){
@@ -194,23 +140,23 @@ md2pdf(){
 }
 
 md2slides(){
-		if [[ $# -eq 1 ]]; then
-			# pandoc -t beamer "$1" -o "${1%.md}.pdf"
-			pandoc -s --webtex -i -t slidy "$1" -o "${1%.md}.html"
-		else
-			echo 'Usage: md2pdf markdown_document.md'
-		fi
+        if [[ $# -eq 1 ]]; then
+            # pandoc -t beamer "$1" -o "${1%.md}.pdf"
+            pandoc -s --webtex -i -t slidy "$1" -o "${1%.md}.html"
+        else
+            echo 'Usage: md2pdf markdown_document.md'
+        fi
 }
 
 
 makepdf(){
     # osascript -e 'display notification "'$out'" with title "Makepdf"'
-	if [[ $# -eq 1 ]]; then
-		pandoc -f markdown-implicit_figures --number-sections $1 -o "${1%.md}.pdf"
-	else
-		echo "Usage: makepdf [/path/to/markdown]"
-	fi
-}	
+    if [[ $# -eq 1 ]]; then
+        pandoc -f markdown-implicit_figures --number-sections $1 -o "${1%.md}.pdf"
+    else
+        echo "Usage: makepdf [/path/to/markdown]"
+    fi
+}    
 
 safetoken(){
     
