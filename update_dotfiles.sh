@@ -17,8 +17,9 @@ zsh_dir=$DIR_PATH/zsh
 extra_dir=$DIR_PATH/extra 
 lvim_dir=$DIR_PATH/lvim
 scripts_dir=$DIR_PATH/scripts
+vscode_dir=$DIR_PATH/settings/vscode
 
-mkdir -p $sqlite3_dir $tmux_dir $vim_dir $zsh_dir $extra_dir $lvim_dir $scripts_dir
+mkdir -p $sqlite3_dir $tmux_dir $vim_dir $zsh_dir $extra_dir $lvim_dir $scripts_dir $vscode_dir
 
 
 
@@ -56,6 +57,14 @@ cp $HOME/.zprofile $zsh_dir/.zprofile
 # Scripts are all kept in the script folder and eventually
 # sourced or symlinked somewhere in the path
 cp -r $HOME/development/scripts/ $scripts_dir
+
+
+# -- SETTINGS --------------
+
+# vscode stuff
+cp $HOME/Library/Application\ Support/Code/User/settings.json $vscode_dir
+cp -r $HOME/Library/Application\ Support/Code/User/snippets/ $vscode_dir
+cp $HOME/Library/Application\ Support/Code/User/keybindings.json $vscode_dir
 
 
 
