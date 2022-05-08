@@ -17,6 +17,7 @@
     "python.linting.flake8CategorySeverity.F": "Warning",
     "python.linting.flake8CategorySeverity.W": "Hint",
     "vim.useSystemClipboard": true,
+    "vim.disableExtension": true,
     "kite.codefinder.enableLineDecoration": false,
     "todo-tree.general.tags": [
         "BUG",
@@ -43,7 +44,10 @@
     "terminal.integrated.unicodeVersion": "11",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "editor.minimap.side": "right",
-    "window.zoomLevel": 1,
     "editor.formatOnSave": true,
     "python.linting.pylintCategorySeverity.convention": "Hint",
+    "window.zoomLevel": 1,
+    "go.toolsManagement.autoUpdate": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.editor.splitInGroupLayout": "vertical"
 }

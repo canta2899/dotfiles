@@ -38,8 +38,6 @@ alias s="open"
 
 alias lz="lazygit"
 
-alias mg="multigrep"
-
 . $HOME/development/scripts/hue.sh
 
 
@@ -60,8 +58,9 @@ PATH="/usr/local/opt/ruby/bin:$PATH"
 # Tex
 PATH="/usr/local/texlive/2021/bin/universal-darwin:$PATH"
 # Homebrew Php
-PATH="/usr/local/opt/php@7.4/bin:$PATH"
-PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+PATH="/usr/local/opt/php/bin:$PATH"
+PATH="/usr/local/opt/php/sbin:$PATH"
+# Apache
 PATH="/usr/local/opt/httpd/bin:$PATH"
 # Flutter
 PATH="$PATH:$HOME/development/flutter/bin"
@@ -69,8 +68,6 @@ PATH="$PATH:$HOME/development/flutter/bin"
 PATH="$HOME/.npm-global/bin:$PATH"
 # Go
 PATH="$PATH:$HOME/go/bin"
-# Java
-PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH
 
 # -- VARIABLES --

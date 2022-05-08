@@ -5,7 +5,7 @@
         "command": "workbench.action.terminal.new"
     },
     {
-        "key": "shift+alt+[Minus]",
+        "key": "shift+alt+v",
         "command": "toggleVim"
     }
 ]
