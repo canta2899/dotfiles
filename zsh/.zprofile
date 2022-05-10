@@ -38,7 +38,14 @@ alias s="open"
 
 alias lz="lazygit"
 
+alias startvnc="/Applications/RealVNC/VNC\ Server.app/Contents/MacOS/vncserver_service"
+
+alias vncserver="/Library/vnc/vncserver"
+
+# -- Sourcing scripts --
+
 . $HOME/development/scripts/hue.sh
+. $HOME/development/scripts/bd.sh
 
 
 # -- PATH -- 
@@ -154,18 +161,4 @@ makepdf(){
         echo "Usage: makepdf [/path/to/markdown]"
     fi
 }    
-
-safetoken(){
-    
-    # copies github token on copy buffer or clears the buffer
-    # the token in sourced as an environment variable
-    if [ "$1" = "clear" ]; then
-        echo "" | pbcopy
-        return 0
-    fi
-
-    echo $GH | pbcopy
-    echo "Token copied, use \"safetoken clear\" to remove"
-    return 0
-}
 

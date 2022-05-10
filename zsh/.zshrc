@@ -86,7 +86,6 @@ plugins=(
     dotnet
     fzf
     cp
-    zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,12 +96,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zprofile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Sourcing zsh-interactive-cd manually because for odd reasons 
-# doesn't work when added to the plugins list or enabled through
-# omz command
-
-. $HOME/.oh-my-zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
