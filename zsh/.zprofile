@@ -6,10 +6,6 @@ unsetopt nomatch
 
 alias icloud="cd /Users/andrea/Library/Mobile\ Documents/com~apple~CloudDocs"
 
-alias mysql="/usr/local/mysql/bin/mysql"
-
-alias runmongod="mongod --config /usr/local/etc/mongod.conf --fork"
-
 alias ztc="zerotier-cli"
 
 alias ls='logo-ls'
@@ -161,4 +157,9 @@ makepdf(){
         echo "Usage: makepdf [/path/to/markdown]"
     fi
 }    
+
+b64url(){
+    read content
+    printf $content | tr -d '\n' | base64 | tr '/+' '_-' | tr -d '='
+}
 

@@ -113,7 +113,7 @@ ls.snippets = {
     },
 }
 
-lvim.transparent_window = true
+lvim.transparent_window = true 
 
 
 -- generic LSP settings

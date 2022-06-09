@@ -46,7 +46,6 @@
     "editor.minimap.side": "right",
     "editor.formatOnSave": true,
     "python.linting.pylintCategorySeverity.convention": "Hint",
-    "window.zoomLevel": 1,
     "go.toolsManagement.autoUpdate": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.editor.splitInGroupLayout": "vertical"
