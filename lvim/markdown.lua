@@ -1,3 +1,4 @@
+-- Should be placed in after/ftplugin/markdown.lua
 -- Disables spell because i read what i write
 vim.cmd("setlocal nospell")
 

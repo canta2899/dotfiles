@@ -38,11 +38,6 @@ alias startvnc="/Applications/RealVNC/VNC\ Server.app/Contents/MacOS/vncserver_s
 
 alias vncserver="/Library/vnc/vncserver"
 
-# -- Sourcing scripts --
-
-. $HOME/development/scripts/hue.sh
-. $HOME/development/scripts/bd.sh
-
 
 # -- PATH -- 
 
