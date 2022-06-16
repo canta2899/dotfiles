@@ -70,6 +70,10 @@ nnoremap <silent> <S-right> :vertical resize -1<CR>
 nnoremap <silent> <S-Tab> gT<CR>
 nnoremap H gT
 nnoremap L gt
+nnoremap d "_d
+
+vnoremap < <gv
+vnoremap > >gv
 
 " Language
 map <leader>oi :setlocal spell spelllang=it<CR>

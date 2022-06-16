@@ -14,9 +14,6 @@
 # encode -> cat your_json.json | jwt encode mysecret
 # decode -> printf your_jwt    | jwt decode mysecret
 
-# make your json and then do the following 
-# cat myjson.json | sh jwt.sh
-
 apply_padding() {
     l=$((${#1} % 4))
 
@@ -63,5 +60,3 @@ if [ $CMD == "decode" ]; then
     printf $body | basenc -d --base64url | tr -d '=' | jq .
 fi
 
-
-# printf "ciao.a.tutti" | cut -d "." -f 2 | tr -d "\n"

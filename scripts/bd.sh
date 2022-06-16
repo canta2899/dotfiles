@@ -23,61 +23,57 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-_bd() {
-    _help_msg () {
-      printf "Usage: bd [OPTION]... [PATTERN]\n"
-      printf "Quickly go back to a specific parent directory in bash.\n\n"
+_help_msg () {
+  printf "Usage: bd [OPTION]... [PATTERN]\n"
+  printf "Quickly go back to a specific parent directory in bash.\n\n"
 
-      printf "\e[1mOPTIONS\e[0m\n"
-      printf "  %-28s %s\n" "-s" "PATTERN can match part of directory name"
-      printf "  %-28s %s\n" "-si" "PATTERN is Case Insensitve and can be partial"
-      printf "  %-28s %s\n" "-?, --help" "Display this message"
+  printf "\e[1mOPTIONS\e[0m\n"
+  printf "  %-28s %s\n" "-s" "PATTERN can match part of directory name"
+  printf "  %-28s %s\n" "-si" "PATTERN is Case Insensitve and can be partial"
+  printf "  %-28s %s\n" "-?, --help" "Display this message"
 
-      printf "\n\e[1mALTERNATE USAGE EXAMPLES\e[0m\n"
-      printf "  %-28s %s\n" "\`bd -si som\`/script.sh" "Execute \"script.sh\" in matching path"
+  printf "\n\e[1mALTERNATE USAGE EXAMPLES\e[0m\n"
+  printf "  %-28s %s\n" "\`bd -si som\`/script.sh" "Execute \"script.sh\" in matching path"
 
-      return 0
-    }
-
-
-    _newpwd() {
-      oldpwd=$1
-      case "$2" in
-        -s)
-          pattern=$3
-          NEWPWD=$(echo $oldpwd | sed 's|\(.*/'$pattern'[^/]*/\).*|\1|')
-          ;;
-        -si)
-          pattern=$3
-          NEWPWD=$(echo $oldpwd | perl -pe 's|(.*/'$pattern'[^/]*/).*|$1|i')
-          ;;
-        -?|--help)
-          help_msg
-          ;;
-        *)
-          pattern=$2
-          NEWPWD=$(echo $oldpwd | sed 's|\(.*/'$pattern'/\).*|\1|')
-      esac
-    }
-
-    if [ $# -eq 0 ] || [ "${@: -1}" = -v ]; 
-    then
-      _help_msg
-    else
-      oldpwd=$(pwd)
-
-      _newpwd "$oldpwd" "$@"
-      
-      if [ "$NEWPWD" = "$oldpwd" ]
-      then
-        echo "No such occurrence."
-      else
-        echo $NEWPWD
-        cd "$NEWPWD"
-      fi
-      unset NEWPWD
-    fi
+  return 0
 }
 
-alias bd='_bd 2>&1'
+
+_newpwd() {
+  oldpwd=$1
+  case "$2" in
+    -s)
+      pattern=$3
+      NEWPWD=$(echo $oldpwd | sed 's|\(.*/'$pattern'[^/]*/\).*|\1|')
+      ;;
+    -si)
+      pattern=$3
+      NEWPWD=$(echo $oldpwd | perl -pe 's|(.*/'$pattern'[^/]*/).*|$1|i')
+      ;;
+    -?|--help)
+      help_msg
+      ;;
+    *)
+      pattern=$2
+      NEWPWD=$(echo $oldpwd | sed 's|\(.*/'$pattern'/\).*|\1|')
+  esac
+}
+
+if [ $# -eq 0 ] || [ "${@: -1}" = -v ]; 
+then
+  _help_msg
+else
+  oldpwd=$(pwd)
+
+  _newpwd "$oldpwd" "$@"
+  
+  if [ "$NEWPWD" = "$oldpwd" ]
+  then
+    echo "No such occurrence."
+  else
+    echo $NEWPWD
+    cd "$NEWPWD"
+  fi
+  unset NEWPWD
+fi
 
