@@ -80,13 +80,7 @@ map <leader>oi :setlocal spell spelllang=it<CR>
 
 set spelllang=it
 
-" autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>
-
 " https://github.com/junegunn/vim-plug
-
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.config/nvim/plugged')
 
 " Make sure you use single quotes
@@ -110,11 +104,6 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'catppuccin/nvim'
@@ -122,8 +111,6 @@ Plug 'catppuccin/nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
-
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'karb94/neoscroll.nvim'
 
@@ -135,21 +122,9 @@ Plug 'akinsho/toggleterm.nvim'
 
 Plug 'windwp/nvim-autopairs'
 
-" Initialize plugin system
 call plug#end()
-"
-" Start interactive EasyAlign in visual mode (e.g. vipga)
+
 xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-" nmap ga <Plug>(EasyAlign)
-
-" Image snippet
-
-function! AddImage()
-    " Latex image insertion snippet
-    r~/.config/nvim/snippets/add-image.txt
-endfunction
 
 nmap aimg :call AddImage()<CR>
 
@@ -160,7 +135,6 @@ let g:vim_markdown_new_list_item_indent = 0
 
 lua <<EOF
     require("toggleterm").setup{
-      -- size can be a number or function which is passed the current terminal
       size = function(term)
         if term.direction == "horizontal" then
           return 20
@@ -251,11 +225,6 @@ lua <<EOF
             hop = false,
         }
     }
-
-    -- require'lspconfig'.pyright.setup{}
-    -- require'lspconfig'.eslint.setup{}
-
-
 
     require('lualine').setup {
         options = {

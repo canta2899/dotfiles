@@ -13,9 +13,7 @@
 # +-------------------------------------------------
 
 
-
 # command | awk '{print substr($0,1,8);exit}' 
-
 
 _set_group_state() {
     echo "http://$HUE_IP/api/$HUE/groups/$1/action"
@@ -42,11 +40,8 @@ if [[ $# -eq 0 ]]; then
     exit 0;
 fi
 
-# Default group is 0
 HUE_GROUP=0
-# No light by default
 HUE_LIGHT=""
-# Value that eventually needs to be set
 VALUE=""
 
 # Parses arguments
@@ -80,22 +75,16 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ $CMD = "on" ]; then
-    if [ -n "$HUE_LIGHT" ]; then
-        uri=$(_set_light_state $HUE_LIGHT)
-    else
+    [ -n "$HUE_LIGHT" ] && uri=$(_set_light_state $HUE_LIGHT) ||
         uri=$(_set_group_state $HUE_GROUP)
-    fi
 
     curl -X PUT -d '{"on": true}' $uri -s > /dev/null
     exit 0
 fi
 
 if [ $CMD = "off" ]; then
-    if [ -n "$HUE_LIGHT" ]; then
-        uri=$(_set_light_state $HUE_LIGHT)
-    else
+    [ -n "$HUE_LIGHT" ] && uri=$(_set_light_state $HUE_LIGHT) || 
         uri=$(_set_group_state $HUE_GROUP)
-    fi
     
     curl -X PUT -d '{"on": false}' $uri -s > /dev/null
     exit 0
@@ -103,21 +92,14 @@ fi
 
 if [ $CMD = "bri" ]; then
 
-    if ! [ -n "$VALUE" ]; then
-        echo "Unknown value" && exit 1;
-    fi
+    ! [ -n "$VALUE" ] && echo "Unknwown value" && exit 1;
 
-    if [ -n "$HUE_LIGHT" ]; then
-        uri=$(_set_light_state $HUE_LIGHT)
-    else
+    [ -n "$HUE_LIGHT" ] && uri=$(_set_light_state $HUE_LIGHT) ||
         uri=$(_set_group_state $HUE_GROUP)
-    fi
 
     brightness=$(($VALUE * 255 / 100))
     
-    if [ $brightness -gt 255 ]; then
-        brightness=255
-    fi 
+    [ $brightness -gt 255 ] && brightness=255
 
     curl -X PUT -d '{"bri": '$brightness'}' $uri -s > /dev/null 
     exit 0

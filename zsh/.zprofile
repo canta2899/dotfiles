@@ -10,8 +10,6 @@ alias ztc="zerotier-cli"
 
 alias ls='logo-ls'
 
-alias lg='logo-ls -D'
-
 alias lsort="logo-ls | sort -n"
 
 alias lsortg="logo-ls -D | sort -n"
@@ -28,11 +26,9 @@ alias vim="lvim"
 
 alias nc="netcat"
 
-alias lss="/bin/ls"
-
 alias s="open"
 
-alias lz="lazygit"
+alias lg="lazygit"
 
 alias startvnc="/Applications/RealVNC/VNC\ Server.app/Contents/MacOS/vncserver_service"
 
