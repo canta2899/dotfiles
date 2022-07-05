@@ -8,7 +8,7 @@ alias icloud="cd /Users/andrea/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 alias ztc="zerotier-cli"
 
-alias ls='logo-ls'
+alias ls='logo-ls -D'
 
 alias lsort="logo-ls | sort -n"
 
@@ -22,7 +22,7 @@ alias t='tmux'
 
 alias ta='tmux attach -t'
 
-alias vim="lvim"
+alias vim="nvim"
 
 alias nc="netcat"
 
@@ -34,6 +34,12 @@ alias startvnc="/Applications/RealVNC/VNC\ Server.app/Contents/MacOS/vncserver_s
 
 alias vncserver="/Library/vnc/vncserver"
 
+alias gdu="$HOME/go/bin/gdu"
+
+alias sed="gsed"
+
+alias date="gdate"
+
 
 # -- PATH -- 
 
@@ -41,8 +47,6 @@ alias vncserver="/Library/vnc/vncserver"
 PATH="$HOME/.local/bin:$PATH"
 #sbin
 PATH="/usr/local/sbin:$PATH"
-# PostgreSQL
-PATH="$PATH:/Applications/Postgres.app/Contents/Versions/13/bin"
 # Yarn
 PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
 # Python
@@ -51,6 +55,8 @@ PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 PATH="/usr/local/opt/ruby/bin:$PATH"
 # Tex
 PATH="/usr/local/texlive/2021/bin/universal-darwin:$PATH"
+# Psql
+PATH="/usr/local/opt/libpq/bin:$PATH"
 # Homebrew Php
 PATH="/usr/local/opt/php/bin:$PATH"
 PATH="/usr/local/opt/php/sbin:$PATH"

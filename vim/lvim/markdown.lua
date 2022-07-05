@@ -1,5 +1,5 @@
+-- custom configuration for markdown files
 -- Should be placed in after/ftplugin/markdown.lua
--- Disables spell because i read what i write
 vim.cmd("setlocal nospell")
 
 -- Disables buffer as source preserving other sources

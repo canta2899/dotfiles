@@ -11,6 +11,6 @@ In order to make everything work propertly one should install:
 - [zsh-autosuggestions plugin](https://github.com/zsh-users/zsh-autosuggestions)
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
 - [logo-ls](https://github.com/Yash-Handa/logo-ls)
-- [LunarVim](https://github.com/LunarVim/LunarVim)
+- [Neovim](https://neovim.io/) (7.0 or higher) using [LunarVim](https://github.com/LunarVim/LunarVim) or [NvChad](https://github.com/NvChad/NvChad)
 - [Amethyst](https://ianyh.com/amethyst/)
 
