@@ -11,26 +11,14 @@ if [[ $url == "" ]]; then
 fi
 
 if [[ $url =~ ^git\@.* ]]; then
-    protocol="ssh"
+    # ssh protocol
+    source=$(printf $url | cut -d ':' -f 2)
+    open "https://github.com/${source%.git}/tree/$branch"
 elif [[ $url =~ ^https\.* ]]; then
-    protocol="http"
+    # http protocol
+    open "${url%.git}/tree/$branch"
 else
-    protocol="unkown"
+    # Unkown protocol
+    echo "Unknown protocol"
 fi
-
-case "$protocol" in
-    "ssh") 
-        source=$(printf $url | cut -d ':' -f 2)
-        open "https://github.com/${source%.git}/tree/$branch"
-    ;;
-    "http") 
-        open "${url%.git}/tree/$branch"
-    ;;
-    *) echo "Unknown protocol" 
-    ;;
-esac
-
-
-
-
 

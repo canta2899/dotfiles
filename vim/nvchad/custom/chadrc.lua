@@ -7,6 +7,11 @@ M.options = {
 }
 
 M.plugins = {
+    options = {
+      lspconfig = {
+         setup_lspconf = "custom.lsp",
+      },
+    },
     user = {
       ["goolord/alpha-nvim"] = {
         disable = false,

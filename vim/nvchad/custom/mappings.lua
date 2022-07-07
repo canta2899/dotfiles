@@ -27,13 +27,6 @@ M.nvterm = {
          end,
          "   toggle horizontal term",
       },
-
-      ["<C-v>"] = {
-         function()
-            require("nvterm.terminal").toggle "vertical"
-         end,
-         "   toggle vertical term",
-      },
    },
 
    n = {
@@ -50,13 +43,6 @@ M.nvterm = {
             require("nvterm.terminal").toggle "horizontal"
          end,
          "   toggle horizontal term",
-      },
-
-      ["<C-v>"] = {
-         function()
-            require("nvterm.terminal").toggle "vertical"
-         end,
-         "   toggle vertical term",
       },
    },
 }
