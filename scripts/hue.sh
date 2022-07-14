@@ -110,26 +110,12 @@ if [ $CMD = "scenes" ]; then
     scenes=`curl -s -X GET $uri | jq 'keys[] as $k | .[$k] | {name: .name, key: $k}'`
     number_re='^[0-9]+$'
 
-    names=( $(echo "$scenes" | jq '.name' | sed -e 's/ /_/g') )
-    ids=( $(echo "$scenes" | jq '.key') )
-
-    echo -e "0 - Do Nothing"
-    for ((i=1; i < ${#names[@]}; i++))
-    do
-        echo -e "$i - ${names[i]}"
-    done
-
-    echo -en "\n> "
-
-    read choice
-
-    if ! [[ $choice =~ $number_re ]] || [ $choice -ge $i ]; then
-        echo "Invalid number"
-        exit 1
-    fi
+    names=( $(echo "$scenes" | jq '.name' | sed -e 's/ /_/g' ) )
+    choice=$(printf '%s\n' "${names[@]}" | fzf)
+    key=$(echo "$scenes" | jq '. | select(.name=='"$(echo $choice | sed -e 's/_/ /g')"') | .key')
 
     uri=$(_set_group_state $HUE_GROUP)
-    curl -X PUT -s -d'{"scene": '"${ids[$choice]}"'}' $uri > /dev/null
+    curl -X PUT -s -d'{"scene": '"${key}"'}' $uri > /dev/null
     exit 0;
 fi
 
