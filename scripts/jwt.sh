@@ -51,12 +51,11 @@ if [ $CMD == "decode" ]; then
 
     computed_signature=$(printf "$real_header.$real_body" | openssl dgst -binary -sha256 -hmac $real_secret | basenc --base64url | tr -d '=')
 
-    if [ $computed_signature != $secret ]; then
-        printf "JWT is not valid\n"
-        exit 1
-    fi
-
     printf $header | basenc -d --base64url | tr -d '=' | jq .
     printf $body | basenc -d --base64url | tr -d '=' | jq .
+
+    if [ $computed_signature != $secret ]; then
+        printf "JWT is not verified\n"
+    fi
 fi
 
