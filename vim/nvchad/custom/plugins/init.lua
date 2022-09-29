@@ -1,7 +1,9 @@
 local overrides = require "custom.plugins.overrides"
 
 return {
-
+  ['folke/which-key.nvim'] = {
+    disable = false
+  },
   ["goolord/alpha-nvim"] = {
     disable = false,
     override_options = overrides.alpha,
