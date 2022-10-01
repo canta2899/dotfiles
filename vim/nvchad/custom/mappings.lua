@@ -11,6 +11,12 @@ M.general = {
     }
 }
 
+M.tabufline = {
+    n = {
+        ["<leader>x"] = { "<cmd> bd <CR>", "delete buffer" },
+    },
+}
+
 M.nvterm = {
    t = {
       -- toggle in terminal mode
