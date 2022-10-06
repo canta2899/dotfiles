@@ -10,7 +10,7 @@ In order to make everything work propertly one should install:
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [zsh-autosuggestions plugin](https://github.com/zsh-users/zsh-autosuggestions)
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
-- [logo-ls](https://github.com/Yash-Handa/logo-ls)
+- [logo-ls (my fork)](https://github.com/canta2899/logo-ls)
 - [Neovim](https://neovim.io/) (7.0 or higher) using [LunarVim](https://github.com/LunarVim/LunarVim) or [NvChad](https://github.com/NvChad/NvChad)
 - [Amethyst](https://ianyh.com/amethyst/)
 
