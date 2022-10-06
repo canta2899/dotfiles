@@ -2,14 +2,27 @@
 
 # Builds a "notes" directory template (with makefile) ready to take markdown notes
 
-if [ -d "notes" ]; 
+SEDCMD=sed
+OS=$(uname)
+NOTES="notes"
+MKF="$NOTES/Makefile"
+PDFS="$NOTES/pdfs"
+IMG="$NOTES/img"
+
+if [ -d "$NOTES" ]; 
 then
     echo "notes directory already exists"
     return 1
 fi
-mkdir -p notes
 
-cat <<-'EOF' > notes/Makefile
+
+[[ "$OS" == 'Darwin' ]] && SEDCMD=gsed
+
+mkdir -p $NOTES
+mkdir -p $IMG
+mkdir -p $PDFS
+
+cat <<'EOF' > $MKF
 DIRNAME := pdfs
 
 MDFOLDER = ./
@@ -22,14 +35,22 @@ SOURCES := $(patsubst %.md,%.pdf,$(subst $(MDFOLDER),$(DIRNAME),$(MARKDOWNS)))
 
 $(DIRNAME)/%.pdf: $(MDFOLDER)/%.md
     @echo "Building $@..."
-    @pandoc -f markdown-implicit_figures $^ -o $@
+    @pandoc \
+        -f markdown-implicit_figures \
+        $^ \
+        -V geometry:margin=0.8in \
+		-V colorlinks=true \
+		-V linkcolor=blue \
+		-V urlcolor=blue \
+		-V babel=italian \
+		-V asmmath \
+		-o $@
 
 .PHONY : all
 
 all: $(SOURCES)
 EOF
 
-mkdir -p notes/img
-mkdir -p notes/pdfs
+$SEDCMD -i 's/    /\t/g' $MKF
 
-
+echo "notes workspace created"
