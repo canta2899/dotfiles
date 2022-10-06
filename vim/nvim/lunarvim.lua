@@ -1,3 +1,24 @@
+-- Example for disabling suggestions
+
+
+-- -- custom configuration for markdown files
+-- -- Should be placed in after/ftplugin/markdown.lua
+-- vim.cmd("setlocal nospell")
+-- 
+-- -- Disables buffer as source preserving other sources
+-- local cmp = require('cmp')
+-- local sources = cmp.get_config().sources
+-- for i = #sources, 1, -1 do
+--   if sources[i].name == 'buffer' then
+--     table.remove(sources, i)
+--   end
+-- end
+-- cmp.setup.buffer({ sources = sources })
+-- 
+-- -- disables buffer (but also snippets)
+-- -- require('cmp').setup.buffer { enabled = false }
+
+
 -- custom lunar vim configuration in lua
 lvim.log.level = "warn"
 lvim.format_on_save = false
