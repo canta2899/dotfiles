@@ -8,14 +8,15 @@ return {
     disable = false,
     override_options = overrides.alpha,
   },
-
+  ["williamboman/mason.nvim"] = {
+    override_options = overrides.mason,
+  },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
   },
-
   ["nvim-treesitter/nvim-treesitter"] = {
      override_options = overrides.treesitter,
    },
