@@ -9,23 +9,30 @@ DOMAIN_CSR=$CERTS/domain.csr      # domain certificate signing request
 DOMAIN_EXT=./domain.ext           # domain ext file
 DOMAIN_CRT=$CERTS/domain.crt      # domain certificate file
 
-rm $CERTS/* > /dev/null 2>&1
-mkdir -p $CERTS
+
+make_certs_folder() {
+    rm $CERTS/* > /dev/null 2>&1
+    mkdir -p $CERTS
+}
+
 
 # --- QUICK SELF SIGNED CERTIFICATE ---
-SELF_SIGNED_KEY=$CERTS/selfsigned.key    # self signed certificate private key
-SELF_SIGNED_KEY=$CERTS/selfsigned.crt    # self signed certificate file
-openssl req -x509 -newkey rsa:4096 -keyout $SELF_SIGNED_KEY -out $SELF_SIGNED_CRT -sha256 -days 365
 
 # 1. Creates a rsa:4096 key
 # 2. Stores the key
 # 3. Self signs a certificate with that key using sha256 for a 365 days duration
 
-# -------------------------------------
+self_signed_certificate() {
+    SELF_SIGNED_KEY=$CERTS/selfsigned.key    # self signed certificate private key
+    SELF_SIGNED_KEY=$CERTS/selfsigned.crt    # self signed certificate file
+    openssl req -x509 -newkey rsa:4096 -keyout $SELF_SIGNED_KEY -out $SELF_SIGNED_CRT -sha256 -days 365
+}
 
 
 # --- EXT FILE STRUCTURE --------------
+make_ext_file() {
 cat <<EOF > $DOMAIN_EXT
+
 authorityKeyIdentifier=keyid,issuer
 basicConstraints=CA:FALSE
 keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
@@ -35,19 +42,28 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = localhost
 EOF
-# -------------------------------------
+
+}
 
 
 # --- CREATE ROOT CA ------------------
-openssl genrsa -des3 -out $CA_KEY 2048
-openssl req -x509 -new -nodes -sha256 -days 1825 -key $CA_KEY -out $CA_CRT
-# -------------------------------------
+
+make_root_ca() {
+    openssl genrsa -des3 -out $CA_KEY 2048
+    openssl req -x509 -new -nodes -sha256 -days 1825 -key $CA_KEY -out $CA_CRT
+}
+
 
 # --- CSR GENERATION ------------------
-openssl genrsa -out $DOMAIN_KEY 2048
-openssl req -new -key $DOMAIN_KEY -out $DOMAIN_CSR
-# -------------------------------------
+
+make_csr() {
+    openssl genrsa -out $DOMAIN_KEY 2048
+    openssl req -new -key $DOMAIN_KEY -out $DOMAIN_CSR
+}
+
 
 # --- SIGNING CSR WITH ROOT CA --------
-openssl x509 -req -in $DOMAIN_CSR -CA $CA_CRT -CAkey $CA_KEY -CAcreateserial -out $DOMAIN_CRT -days 825 -sha256 -extfile $DOMAIN_EXT
-# -------------------------------------
+
+sign_csr() {
+    openssl x509 -req -in $DOMAIN_CSR -CA $CA_CRT -CAkey $CA_KEY -CAcreateserial -out $DOMAIN_CRT -days 825 -sha256 -extfile $DOMAIN_EXT
+}

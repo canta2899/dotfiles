@@ -1,5 +1,15 @@
 -- overrides defult plugin configs
 
+local function getmasonlist()
+    local t = {}
+    for _, value in pairs(require 'lsplanguages') do
+        t[#t+1] = value.mason
+    end
+
+    return t
+end
+
+
 local M = {}
 
 M.treesitter = {
@@ -18,25 +28,7 @@ M.treesitter = {
 }
 
 M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
-
-    -- web dev
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "emmet-ls",
-    "json-lsp",
-
-    "pyright",
-
-    -- shell
-    "shfmt",
-    "shellcheck",
-  },
+  ensure_installed = getmasonlist()
 }
 
 M.alpha = {

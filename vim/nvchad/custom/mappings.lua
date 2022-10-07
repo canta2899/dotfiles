@@ -1,5 +1,12 @@
 local M = {}
 
+M.disabled = {
+    n = {
+        ["<leader>h"] = "",
+        ["<leader>v"] = "",
+    }
+}
+
 M.general = {
     n = {
       ["d"] = {"\"_d", "delete normal"},
