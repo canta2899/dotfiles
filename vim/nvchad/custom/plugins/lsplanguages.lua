@@ -17,10 +17,10 @@ return {
         lsp = "tsserver",
         mason = "typescript-language-server",
     },
-    ["deno"] = {
-        lsp = "denols",
-        mason = "deno",
-    },
+    -- ["deno"] = {
+    --     lsp = "denols",
+    --     mason = "deno",
+    -- },
     ["emmet"] = {
         lsp = "emmet_ls",
         mason = "emmet-ls",
