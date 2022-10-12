@@ -1,0 +1,72 @@
+# git clone --depth 1 git@github.com:eendroroy/alacritty-theme.git
+
+import:
+  - ~/.config/alacritty/alacritty-theme/themes/pencil_dark.yaml
+
+env:
+  TERM: xterm-256color
+
+decorations: full
+
+window:
+  opacity: 0.9911
+  padding:
+    x: 8
+    y: 4
+  dimensions:
+    columns: 133
+    lines: 40
+background_blur: true
+
+alt_send_esc: false
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  # selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+live_config_reload: true
+
+# https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
+
+font:
+  # Normal (roman) font face
+  normal:
+    family: Hack Nerd Font 
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: Hack Nerd Font 
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: Hack Nerd Font 
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: Hack Nerd Font 
+    style: Bold Italic
+
+  # Point size of the font
+  size: 16.0
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.test_test1
+  glyph_offset:
+    x: 0
+    y: 1
+
+  # OS X only: use thin stroke font rendering. Thin strokes are suitable
+  # for retina displays, but for non-retina you probably want this set to
+  # false.
+  use_thin_strokes: false
