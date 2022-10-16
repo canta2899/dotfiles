@@ -2,8 +2,15 @@ local overrides = require "custom.plugins.overrides"
 
 return {
 
+  ['whonore/Coqtail'] = {
+    config = function()
+      vim.cmd("hi CoqtailChecked guifg=Green guibg=#333333 gui=bold")
+      vim.cmd("hi CoqtailSent    guifg=Green guibg=#333333 gui=bold")
+    end,
+  },
+
   ['folke/which-key.nvim'] = {
-    disable = false
+    disable = true
   },
 
   ["goolord/alpha-nvim"] = {
