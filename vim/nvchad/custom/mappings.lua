@@ -1,10 +1,20 @@
 local M = {}
 
 M.disabled = {
-    n = {
-        ["<leader>h"] = "",
-        ["<leader>v"] = "",
-    }
+  n = {
+    ["<leader>h"] = "",
+    ["<leader>v"] = "",
+    ["<A-i>"] = "",
+    ["<A-h>"] = "",
+    ["<A-v>"] = "",
+
+  },
+  t = {
+    -- toggle in terminal mode
+    ["<A-i>"] = "",
+    ["<A-h>"] = "",
+    ["<A-v>"] = "",
+  },
 }
 
 M.general = {
