@@ -4,8 +4,8 @@ return {
 
   ['whonore/Coqtail'] = {
     config = function()
-      vim.cmd("hi CoqtailChecked guibg=#333333 gui=bold")
-      vim.cmd("hi CoqtailSent    guibg=#333333 gui=bold")
+      vim.cmd("hi CoqtailChecked guibg=#333333")
+      vim.cmd("hi CoqtailSent    guibg=#333333")
     end,
   },
 
