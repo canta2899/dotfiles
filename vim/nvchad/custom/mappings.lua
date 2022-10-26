@@ -30,7 +30,7 @@ M.general = {
 
 M.tabufline = {
     n = {
-        ["<leader>x"] = { "<cmd> bd <CR>", "delete buffer" },
+        ["<leader>d"] = { "<cmd> bd <CR>", "delete buffer" },
     },
 }
 
