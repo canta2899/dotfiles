@@ -4,7 +4,7 @@ M.plugins = require "custom.plugins"
 
 M.ui = {
   theme = "chocolate",
-  transparency = false,
+  transparency = true,
 }
 
 M.mappings = require "custom.mappings"

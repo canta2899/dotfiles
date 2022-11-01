@@ -65,7 +65,9 @@ map sj <C-w>j
 map sl <C-w>l
 
 " Clearing highlight with Ctrl + L
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+"nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
+nnoremap <ESC> :noh <CR><C-L>
 
 " Splits resizing
 nnoremap <silent> <S-Up> :resize -1<CR>

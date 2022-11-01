@@ -3,6 +3,8 @@ local overrides = require "custom.plugins.overrides"
 return {
 
   ['whonore/Coqtail'] = {
+    ft = {'v'},
+    cmd = {'CoqStart'},
     config = function()
       vim.cmd("hi CoqtailChecked guibg=#333333")
       vim.cmd("hi CoqtailSent    guibg=#333333")

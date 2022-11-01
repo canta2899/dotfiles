@@ -66,6 +66,8 @@ PATH="/usr/local/opt/httpd/bin:$PATH"
 PATH="$PATH:$HOME/development/flutter/bin"
 # Global node 
 PATH="$HOME/.npm-global/bin:$PATH"
+# Cargo
+PATH="$HOME/.cargo/bin:$PATH"
 # Go
 PATH="$PATH:$HOME/go/bin"
 export PATH
