@@ -24,14 +24,14 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#606060"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(
-    git
-    z
-    docker
-    docker-compose
-    zsh-autosuggestions
-    dotnet
-    fzf
-    cp
+  git
+  z
+  docker
+  docker-compose
+  zsh-autosuggestions
+  dotnet
+  fzf
+  cp
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -46,13 +46,13 @@ source $HOME/.zprofile
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
+  if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+    . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+  else
+    export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<

@@ -86,11 +86,11 @@ export LANG="en_US.UTF-8"
 # Returns human readable weight of file/directory calculated recursively
 
 we(){
-    if [[ $# -eq 1 ]] then
-        du -d 0 -h $1
-    else
-        echo "Specific a path to a file"
-    fi
+  if [[ $# -eq 1 ]] then
+    du -d 0 -h $1
+  else
+    echo "Specific a path to a file"
+  fi
 }
 
 # Quick wrapper to activate and deactivate python virtual environments
@@ -98,67 +98,67 @@ we(){
 # And then "envoff" to deactivate the current environment if activated
 
 envon(){
-    RED='\033[0;31m'
-    GREEN='\033[0;32m'
-    ORANGE='\033[1;33m'
-    if [[ $# -eq 1 ]]; then
-        current_path="${1}/bin/activate"
-        source ${current_path} 2>/dev/null
-        if [[ $? -eq 0 ]]; then
-            echo "${GREEN}Python env activated.\nUse \"envoff\" to deactivate the environment"
-        else
-            echo "${RED}An error occoured. Does $current_path exist?" 
-        fi
+  RED='\033[0;31m'
+  GREEN='\033[0;32m'
+  ORANGE='\033[1;33m'
+  if [[ $# -eq 1 ]]; then
+    current_path="${1}/bin/activate"
+    source ${current_path} 2>/dev/null
+    if [[ $? -eq 0 ]]; then
+      echo "${GREEN}Python env activated.\nUse \"envoff\" to deactivate the environment"
     else
-        echo "${ORANGE}Please provide a valid path.\nEx. envon /my/path"
+      echo "${RED}An error occoured. Does $current_path exist?" 
     fi
+  else
+    echo "${ORANGE}Please provide a valid path.\nEx. envon /my/path"
+  fi
 }
 
 envoff(){
-    deactivate > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
-        echo "Environment deactivated"
+  deactivate > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo "Environment deactivated"
     return 0
   else
-        echo "No environment activated"
+    echo "No environment activated"
     return 1
-    fi
+  fi
 }
 
 whatismyip(){
-    curl https://api.ipify.org\?format\=text
-    echo "\n"
+  curl https://api.ipify.org\?format\=text
+  echo "\n"
 }
 
 md2pdf(){
-        if [[ $# -eq 1 ]]; then
-                pandoc -f markdown -t latex "$1" -o "${1%.md}.tex" -s --number-sections && pdflatex "${1%.md}.tex" && rm "${1%.md}.tex" "${1%.md}.aux" "${1%.md}.log"
-        else
-                echo 'Usage: md2tex input.md'
-        fi
+  if [[ $# -eq 1 ]]; then
+    pandoc -f markdown -t latex "$1" -o "${1%.md}.tex" -s --number-sections && pdflatex "${1%.md}.tex" && rm "${1%.md}.tex" "${1%.md}.aux" "${1%.md}.log"
+  else
+    echo 'Usage: md2tex input.md'
+  fi
 }
 
 md2slides(){
-        if [[ $# -eq 1 ]]; then
-            # pandoc -t beamer "$1" -o "${1%.md}.pdf"
-            pandoc -s --webtex -i -t slidy "$1" -o "${1%.md}.html"
-        else
-            echo 'Usage: md2pdf markdown_document.md'
-        fi
+  if [[ $# -eq 1 ]]; then
+    # pandoc -t beamer "$1" -o "${1%.md}.pdf"
+    pandoc -s --webtex -i -t slidy "$1" -o "${1%.md}.html"
+  else
+    echo 'Usage: md2pdf markdown_document.md'
+  fi
 }
 
 
 makepdf(){
-    # osascript -e 'display notification "'$out'" with title "Makepdf"'
-    if [[ $# -eq 1 ]]; then
-        pandoc -f markdown-implicit_figures --number-sections $1 -o "${1%.md}.pdf"
-    else
-        echo "Usage: makepdf [/path/to/markdown]"
-    fi
+  # osascript -e 'display notification "'$out'" with title "Makepdf"'
+  if [[ $# -eq 1 ]]; then
+    pandoc -f markdown-implicit_figures --number-sections $1 -o "${1%.md}.pdf"
+  else
+    echo "Usage: makepdf [/path/to/markdown]"
+  fi
 }    
 
 b64url(){
-    read content
-    printf $content | tr -d '\n' | base64 | tr '/+' '_-' | tr -d '='
+  read content
+  printf $content | tr -d '\n' | base64 | tr '/+' '_-' | tr -d '='
 }
 
