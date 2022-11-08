@@ -20,6 +20,7 @@ M.disabled = {
 M.general = {
     n = {
       ["d"] = {"\"_d", "delete normal"},
+      ["gx"] = {":silent !open <cWORD><cr>",  "open uri"}
     },
     v = {
       ["d"] = {"\"_d", "delete visual"},
