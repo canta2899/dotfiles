@@ -5,7 +5,7 @@
 url=$(git config --get remote.origin.url)
 branch=$(git rev-parse --abbrev-ref HEAD)
 
-if [ "$url" -eq "" ]; then
+if [[ "$url" == "" ]]; then
     echo "No remote found"
     exit 1
 fi
