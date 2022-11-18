@@ -2,7 +2,7 @@
 
 # Builds a "notes" directory template (with makefile) ready to take markdown notes
 
-SEDCMD=sed
+SEDCMD="sed"
 OS=$(uname)
 NOTES="notes"
 MKF="$NOTES/Makefile"
@@ -16,11 +16,12 @@ then
 fi
 
 
-[[ "$OS" == 'Darwin' ]] && SEDCMD=gsed
+[ "$OS" = 'Darwin' ] && SEDCMD=gsed
 
 mkdir -p $NOTES
 mkdir -p $IMG
 mkdir -p $PDFS
+echo "pdfs" > $NOTES/.gitignore
 
 cat <<'EOF' > $MKF
 DIRNAME := pdfs
