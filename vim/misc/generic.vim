@@ -54,15 +54,10 @@ nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 
 " map <Space> <C-w>w  it's annoying if you also map space as leader 
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
-
-map sh <C-w>h
-map sk <C-w>k
-map sj <C-w>j
-map sl <C-w>l
+map <C-h> <C-w>h
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+map <C-l> <C-w>l
 
 " Clearing highlight with Ctrl + L
 "nnoremap <silent> <C-L> :nohlsearch<CR><C-L>

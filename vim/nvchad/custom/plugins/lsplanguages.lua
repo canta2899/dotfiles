@@ -29,6 +29,10 @@ return {
         lsp = "clangd",
         mason = "clangd",
     },
+    ["csharp"] = {
+        lsp = "csharp_ls",
+        mason = "csharp-language-server",
+    },
     ["erlang"] = {
         lsp = "erlangls",
         mason = "erlang-ls"

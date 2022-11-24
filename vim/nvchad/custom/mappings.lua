@@ -19,6 +19,13 @@ M.disabled = {
 
 M.general = {
     n = {
+
+      ["<leader>fm"] = {
+        function()
+          vim.lsp.buf.format()
+        end,
+        "format"
+      },
       ["d"] = {"\"_d", "delete normal"},
       ["gx"] = {":silent !open <cWORD><cr>",  "open uri"}
     },
@@ -55,7 +62,7 @@ M.lspconfig = {
         vim.lsp.buf.definition()
       end,
       "lsp definition",
-    },
+    }
   }
 }
 

@@ -3,8 +3,8 @@ local M = {}
 M.plugins = require "custom.plugins"
 
 M.ui = {
-  theme = "chocolate",
-  transparency = true,
+  theme = "decay",
+  transparency = false,
 }
 
 M.mappings = require "custom.mappings"

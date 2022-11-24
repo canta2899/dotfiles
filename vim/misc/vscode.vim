@@ -8,15 +8,10 @@ set number
 set clipboard=unnamed
 set relativenumber
 
-map s<left> <C-w>h
-map s<up> <C-w>k
-map s<down> <C-w>j
-map s<right> <C-w>l
-
-map sh <C-w>h
-map sk <C-w>k
-map sj <C-w>j
-map sl <C-w>l
+map <C-h> <C-w>h
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+map <C-l> <C-w>l
 
 " Clearing highlight with ESC
 nnoremap <silent> <ESC> :nohlsearch<CR><C-L>
