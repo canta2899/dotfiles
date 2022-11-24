@@ -2,9 +2,17 @@
 
 unsetopt nomatch
 
+# -- VARIABLES --
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+export LANG="en_US.UTF-8"
+source ~/.secrets
+
 # -- ALIASES --
 
-alias icloud="cd /Users/andrea/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias icloud='cd $CLOUDDOCS'
 
 alias ztc="zerotier-cli"
 
@@ -13,6 +21,8 @@ alias ls='logo-ls -D'
 alias lsort="logo-ls | sort -n"
 
 alias lsortg="logo-ls -D | sort -n"
+
+alias we="du -d 0 -h"
 
 alias tn="tmux new-session -t"
 
@@ -39,6 +49,8 @@ alias gdu="$HOME/go/bin/gdu"
 alias sed="gsed"
 
 alias date="gdate"
+
+alias gouni='tmux new-window -n uni -c $UNIPATH'
 
 
 # -- PATH -- 
@@ -72,26 +84,7 @@ PATH="$HOME/.cargo/bin:$PATH"
 PATH="$PATH:$HOME/go/bin"
 export PATH
 
-# -- VARIABLES --
-
-source ~/.secrets
-
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
-export LANG="en_US.UTF-8"
-
 # -- FUNCTIONS --
-
-# Returns human readable weight of file/directory calculated recursively
-
-we(){
-  if [[ $# -eq 1 ]] then
-    du -d 0 -h $1
-  else
-    echo "Specific a path to a file"
-  fi
-}
 
 # Quick wrapper to activate and deactivate python virtual environments
 # Usage consists of "envon [path_to_env folder]" and "deactivate"

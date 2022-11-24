@@ -59,3 +59,5 @@ unset __conda_setup
 
 # opam configuration
 [[ ! -r /Users/andrea/.opam/opam-init/init.zsh ]] || source /Users/andrea/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
