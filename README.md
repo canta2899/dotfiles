@@ -13,4 +13,5 @@ In order to make everything work propertly one should install:
 - [logo-ls (my fork)](https://github.com/canta2899/logo-ls)
 - [Neovim](https://neovim.io/) (7.0 or higher) using  [NvChad](https://github.com/NvChad/NvChad) 
 - [Amethyst](https://ianyh.com/amethyst/)
+- [fzf](https://github.com/junegunn/fzf)
 

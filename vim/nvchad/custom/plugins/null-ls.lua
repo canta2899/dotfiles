@@ -6,7 +6,11 @@ if not present then
   return
 end
 
-local sources = { null_ls.builtins.formatting.prettier, null_ls.builtins.formatting.markdownlint }
+local sources = {
+  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.formatting.markdownlint,
+  null_ls.builtins.formatting.gofmt
+}
 
 null_ls.setup {
   debug = true,

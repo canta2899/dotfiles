@@ -18,6 +18,7 @@ nnoremap <silent> <ESC> :nohlsearch<CR><C-L>
 nnoremap H gT
 nnoremap L gt
 nnoremap d "_d
+vnoremap d "_d
 vnoremap < <gv
 vnoremap > >gv
 

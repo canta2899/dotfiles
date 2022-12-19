@@ -18,10 +18,6 @@ alias ztc="zerotier-cli"
 
 alias ls='logo-ls -D'
 
-alias lsort="logo-ls | sort -n"
-
-alias lsortg="logo-ls -D | sort -n"
-
 alias we="du -d 0 -h"
 
 alias tn="tmux new-session -t"
@@ -36,9 +32,7 @@ alias vim="nvim"
 
 alias nc="netcat"
 
-alias s="open"
-
-alias lg="lazygit"
+alias ii="open"
 
 alias startvnc="/Applications/RealVNC/VNC\ Server.app/Contents/MacOS/vncserver_service"
 
@@ -51,7 +45,6 @@ alias sed="gsed"
 alias date="gdate"
 
 alias gouni='tmux new-window -n uni -c $UNIPATH'
-
 
 # -- PATH -- 
 
@@ -82,7 +75,12 @@ PATH="$HOME/.npm-global/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 # Go
 PATH="$PATH:$HOME/go/bin"
+# Coq (because older coq is needed for exercises)
+PATH="/Applications/CoqIDE_8.13.1.app/Contents/Resources/bin:$PATH"
 export PATH
+
+
+export EDITOR="code"
 
 # -- FUNCTIONS --
 

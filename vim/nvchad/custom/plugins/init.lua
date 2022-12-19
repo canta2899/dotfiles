@@ -1,11 +1,6 @@
 local overrides = require "custom.plugins.overrides"
 
 return {
-  ['wfxr/minimap.vim'] = {
-    config = function()
-      vim.g["minimap_auto_start"] = 1
-    end,
-  },
 
   ['whonore/Coqtail'] = {
     ft = {'v'},
