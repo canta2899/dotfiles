@@ -27,7 +27,9 @@ M.general = {
         "format"
       },
       ["d"] = {"\"_d", "delete normal"},
-      ["gx"] = {":silent !open <cWORD><cr>",  "open uri"}
+      ["gx"] = {":silent !open <cWORD><cr>",  "open uri"},
+      ["<C-u>"] = {"<C-u>zz", "center cursor after half page up"},
+      ["<C-d>"] = {"<C-d>zz", "center cursor after half page down"},
     },
     v = {
       ["d"] = {"\"_d", "delete visual"},

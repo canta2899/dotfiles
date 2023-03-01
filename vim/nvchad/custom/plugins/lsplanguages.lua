@@ -1,6 +1,10 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
 
 return {
+    ["haskell"] = {
+        lsp = "hls",
+        mason = "haskell-language-server",
+    },
     ["lua"] = {
         lsp = "sumneko_lua";
         mason = "lua-language-server",

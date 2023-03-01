@@ -7,6 +7,8 @@ set magic                 " Use 'magic' patterns (extended regular expressions).
 set number
 set clipboard=unnamed
 set relativenumber
+set visualbell
+set noerrorbells
 
 map <C-h> <C-w>h
 map <C-k> <C-w>k
