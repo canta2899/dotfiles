@@ -6,7 +6,7 @@ return {
         mason = "haskell-language-server",
     },
     ["lua"] = {
-        lsp = "sumneko_lua";
+        lsp = "lua_ls";
         mason = "lua-language-server",
     },
     ["css"] = {

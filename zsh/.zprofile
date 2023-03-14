@@ -155,3 +155,12 @@ b64url(){
   printf $content | tr -d '\n' | base64 | tr '/+' '_-' | tr -d '='
 }
 
+
+topdf() {
+  if [[ $# -eq 1 ]]; then
+    pandoc -o "${1%.md}.pdf" $1 --template eisvogel
+  else
+    echo 'Usage: topdf markdown_document.md'
+  fi
+}
+

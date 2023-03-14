@@ -30,11 +30,19 @@ M.general = {
       ["gx"] = {":silent !open <cWORD><cr>",  "open uri"},
       ["<C-u>"] = {"<C-u>zz", "center cursor after half page up"},
       ["<C-d>"] = {"<C-d>zz", "center cursor after half page down"},
+      ["è"] = {"$", "easier end with italian keyboard"},
+      ["à"] = {"^", "easier start with italian keyboard"},
     },
     v = {
       ["d"] = {"\"_d", "delete visual"},
       ["<"] = {"<gv", "indent left"},
       [">"] = {">gv", "indent right"},
+      ["è"] = {"$", "easier end with italian keyboard"},
+      ["à"] = {"^", "easier start with italian keyboard"},
+    },
+    o = {
+      ["è"] = {"$", "easier end with italian keyboard"},
+      ["à"] = {"^", "easier start with italian keyboard"},
     }
 }
 

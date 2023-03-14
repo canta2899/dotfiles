@@ -20,7 +20,13 @@ nnoremap <silent> <ESC> :nohlsearch<CR><C-L>
 nnoremap H gT
 nnoremap L gt
 nnoremap d "_d
+nnoremap è $
+nnoremap à ^
 vnoremap d "_d
 vnoremap < <gv
 vnoremap > >gv
+vnoremap è $
+vnoremap à ^
+onoremap è $
+onoremap à ^
 
