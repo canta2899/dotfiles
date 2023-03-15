@@ -32,6 +32,7 @@ M.general = {
       ["<C-d>"] = {"<C-d>zz", "center cursor after half page down"},
       ["è"] = {"$", "easier end with italian keyboard"},
       ["à"] = {"^", "easier start with italian keyboard"},
+      ["<Esc>"] = { ":noh <CR>", "clear highlights", opts={silent = true}},
     },
     v = {
       ["d"] = {"\"_d", "delete visual"},
