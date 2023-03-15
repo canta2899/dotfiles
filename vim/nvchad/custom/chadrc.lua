@@ -1,7 +1,5 @@
 local M = {}
 
-M.plugins = require "custom.plugins"
-
 M.ui = {
   theme = "onedark",
   transparency = false,
