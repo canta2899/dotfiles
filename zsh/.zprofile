@@ -79,6 +79,8 @@ PATH="$HOME/.cargo/bin:$PATH"
 PATH="$PATH:$HOME/go/bin"
 # Coq (because older coq is needed for exercises)
 PATH="/Applications/CoqIDE_8.13.1.app/Contents/Resources/bin:$PATH"
+# Ghcup
+PATH="$HOME/.ghcup/bin:$PATH"
 export PATH
 
 
