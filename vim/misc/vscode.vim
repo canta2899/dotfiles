@@ -6,9 +6,13 @@ set gdefault              " Use 'g' flag by default with :s/foo/bar/.
 set magic                 " Use 'magic' patterns (extended regular expressions).
 set number
 set clipboard=unnamed
+set backspace=indent,eol,start
+set expandtab
+set shiftwidth=4
+set tabstop=4
 set relativenumber
 set visualbell
-set noerrorbells
+" set noerrorbells
 
 map <C-h> <C-w>h
 map <C-k> <C-w>k
@@ -16,7 +20,8 @@ map <C-j> <C-w>j
 map <C-l> <C-w>l
 
 " Clearing highlight with ESC
-nnoremap <silent> <ESC> :nohlsearch<CR><C-L>
+" nnoremap <silent> <ESC> :nohlsearch<CR><C-L>
+" noremap <ESC> :nohlsearch<CR><C-L>
 nnoremap H gT
 nnoremap L gt
 nnoremap d "_d

@@ -1,5 +1,4 @@
 ## User configuration
-
 unsetopt nomatch
 
 # -- VARIABLES --
@@ -54,8 +53,6 @@ alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponde
 PATH="$HOME/.local/bin:$PATH"
 #sbin
 PATH="/usr/local/sbin:$PATH"
-# Yarn
-PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
 # Python
 PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 # Ruby
@@ -71,8 +68,6 @@ PATH="/usr/local/opt/php/sbin:$PATH"
 PATH="/usr/local/opt/httpd/bin:$PATH"
 # Flutter
 PATH="$PATH:$HOME/development/flutter/bin"
-# Global node 
-PATH="$HOME/.npm-global/bin:$PATH"
 # Cargo
 PATH="$HOME/.cargo/bin:$PATH"
 # Go
@@ -82,7 +77,6 @@ PATH="/Applications/CoqIDE_8.13.1.app/Contents/Resources/bin:$PATH"
 # Ghcup
 PATH="$HOME/.ghcup/bin:$PATH"
 export PATH
-
 
 export EDITOR="code"
 
@@ -166,3 +160,6 @@ topdf() {
   fi
 }
 
+batstatus() {
+  echo "$(ioreg -l | awk '$3~/Capacity/{c[$3]=$5}END{OFMT="%.3f";max=c["\"MaxCapacity\""];print(max>0?100*c["\"CurrentCapacity\""]/max:"?")}')"
+}

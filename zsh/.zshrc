@@ -1,6 +1,12 @@
+# NVM
+export NVM_LAZY=1
+# export NVM_DIR=~/.nvm
+# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -32,11 +38,10 @@ plugins=(
   dotnet
   fzf
   cp
+  nvm
 )
 
 source $ZSH/oh-my-zsh.sh
-
-source $HOME/.zprofile
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -44,18 +49,5 @@ source $HOME/.zprofile
 
 add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+source $HOME/.zprofile
 

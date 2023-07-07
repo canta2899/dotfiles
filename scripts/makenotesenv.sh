@@ -4,7 +4,7 @@
 
 SEDCMD="sed"
 OS=$(uname)
-NOTES="notes"
+NOTES=${1:-"notes"}
 MKF="$NOTES/Makefile"
 PDFS="$NOTES/pdfs"
 IMG="$NOTES/img"
