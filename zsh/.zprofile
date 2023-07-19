@@ -45,7 +45,7 @@ alias date="gdate"
 
 alias gouni='tmux new-window -n uni -c $UNIPATH'
 
-alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say 'get flushed'"
+alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
 # -- PATH -- 
 
@@ -78,7 +78,7 @@ PATH="/Applications/CoqIDE_8.13.1.app/Contents/Resources/bin:$PATH"
 PATH="$HOME/.ghcup/bin:$PATH"
 export PATH
 
-export EDITOR="code"
+export EDITOR="nvim"
 
 # -- FUNCTIONS --
 

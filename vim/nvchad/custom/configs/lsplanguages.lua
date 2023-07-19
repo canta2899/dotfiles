@@ -57,8 +57,8 @@ return {
         lsp = "bashls",
         mason = "bash-language-server",
     },
-    ["ocaml"] = {
-      lsp = "ocamllsp",
-      mason = "ocaml-lsp",
+    ["rust_analyzer"] = {
+      lsp = "rust_analyzer",
+      mason = "rust-analyzer"
     }
 }
