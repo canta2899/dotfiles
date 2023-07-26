@@ -26,6 +26,12 @@ nnoremap H gT
 nnoremap L gt
 nnoremap d "_d
 nnoremap è $
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap n nzzzv
+nnoremap N Nzzzv
 nnoremap à ^
 vnoremap d "_d
 vnoremap < <gv

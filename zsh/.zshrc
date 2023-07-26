@@ -45,8 +45,6 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
-
 source $HOME/.zprofile
 
 
