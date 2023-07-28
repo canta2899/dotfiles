@@ -16,35 +16,35 @@ return {
     lsp = "lua_ls",
     mason = "lua-language-server",
   },
-  -- ["css"] = {
-  --   ts = "css",
-  --   lsp = "cssls",
-  --   mason = "css-lsp",
-  -- },
-  -- ["html"] = {
-  --   ts = "html",
-  --   lsp = "html",
-  --   mason = "html-lsp",
-  -- },
+  ["css"] = {
+    ts = "css",
+    lsp = "cssls",
+    mason = "css-lsp",
+  },
+  ["html"] = {
+    ts = "html",
+    lsp = "html",
+    mason = "html-lsp",
+  },
   ["javascript"] = {
     ts = "typescript",
     lsp = "tsserver",
     mason = "typescript-language-server",
   },
-  -- ["deno"] = {
-  --   ts = "typescript",
-  --   lsp = "denols",
-  --   mason = "deno",
-  -- },
+  ["deno"] = {
+    ts = "typescript",
+    lsp = "denols",
+    mason = "deno",
+  },
   -- ["emmet"] = {
   --   lsp = "emmet_ls",
   --   mason = "emmet-ls",
   -- },
-  -- ["json"] = {
-  --   ts = "json",
-  --   lsp = "jsonls",
-  --   mason = "json-lsp",
-  -- },
+  ["json"] = {
+    ts = "json",
+    lsp = "jsonls",
+    mason = "json-lsp",
+  },
   -- ["csharp"] = {
   --   ts = "c_sharp",
   --   lsp = "csharp_ls",
@@ -60,20 +60,20 @@ return {
     lsp = "gopls",
     mason = "gopls"
   },
-  -- ["python"] = {
-  --   ts = "python",
-  --   lsp = "pyright",
-  --   mason = "pyright",
-  -- },
-  -- ["bash"] = {
-  --   ts = "bash",
-  --   lsp = "bashls",
-  --   mason = "bash-language-server",
-  -- },
-  -- ["rust_analyzer"] = {
-  --   ts = "rust",
-  --   lsp = "rust_analyzer",
-  --   mason = "rust-analyzer"
-  -- }
+  ["python"] = {
+    ts = "python",
+    lsp = "pyright",
+    mason = "pyright",
+  },
+  ["bash"] = {
+    ts = "bash",
+    lsp = "bashls",
+    mason = "bash-language-server",
+  },
+  ["rust_analyzer"] = {
+    ts = "rust",
+    lsp = "rust_analyzer",
+    mason = "rust-analyzer"
+  }
 }
 
