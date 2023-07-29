@@ -2,7 +2,7 @@ return {
 
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = function() 
+        config = function()
             local indent = require("indent_blankline")
 
             indent.setup {
@@ -16,16 +16,10 @@ return {
         build = ":TSUpdate",
         config = function()
             local ts = require("nvim-treesitter.configs")
-            local languages = require("canta2899.languages")
-            local installed = {}
-
-            for _, value in pairs(languages) do
-                if value.ts then installed[#installed+1] = value.ts end
-            end
-
+            local parsers = require("canta2899.utils").get_language("ts")
 
             ts.setup {
-                ensure_installed = installed,
+                ensure_installed = parsers,
                 highlight = {
                     enable = true,
                     use_languagetree = true,
@@ -39,7 +33,7 @@ return {
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
-        config = function() 
+        config = function()
             local autopairs = require("nvim-autopairs")
 
             autopairs.setup {
