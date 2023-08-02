@@ -45,11 +45,11 @@ return {
         lsp = "jsonls",
         mason = "json-lsp",
     },
-    -- ["csharp"] = {
-    --   ts = "c_sharp",
-    --   lsp = "csharp_ls",
-    --   mason = "csharp-language-server",
-    -- },
+    ["csharp"] = {
+      ts = "c_sharp",
+      lsp = "csharp_ls",
+      mason = "csharp-language-server",
+    },
     -- ["erlang"] = {
     --   ts ="erlang",
     --   lsp = "erlangls",
