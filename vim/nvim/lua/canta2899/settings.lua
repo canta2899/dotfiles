@@ -40,6 +40,7 @@ vim.opt.undofile = true
 
 vim.opt.updatetime = 250
 vim.opt.whichwrap:append "<>[]hl"
+vim.opt.linebreak = true
 
 -- disables providers
 -- vim.g["loaded_" .. provider .. "_provider"] = 0

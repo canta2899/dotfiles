@@ -2,13 +2,8 @@ return {
 
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            local indent = require("indent_blankline")
-
-            indent.setup {
-                show_end_of_line = false,
-            }
-        end,
+        main = "ibl",
+        opts = {},
     },
 
     {
