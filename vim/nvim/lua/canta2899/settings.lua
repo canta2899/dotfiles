@@ -16,6 +16,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.fillchars = { eob = " " }
@@ -29,7 +30,7 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
 vim.opt.ruler = false
 
-vim.opt.shortmess:append "sI"
+vim.opt.shortmess:append("sI")
 -- vim.opt.signcolumn = "yes"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -39,8 +40,11 @@ vim.opt.ttimeoutlen = 50
 vim.opt.undofile = true
 
 vim.opt.updatetime = 250
-vim.opt.whichwrap:append "<>[]hl"
+vim.opt.whichwrap:append("<>[]hl")
 vim.opt.linebreak = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- disables providers
 -- vim.g["loaded_" .. provider .. "_provider"] = 0
