@@ -11,7 +11,7 @@ In order to make everything work propertly one should install:
 - [zsh-autosuggestions plugin](https://github.com/zsh-users/zsh-autosuggestions)
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts)
 - [logo-ls (my fork)](https://github.com/canta2899/logo-ls)
-- [Neovim](https://neovim.io/) (7.0 or higher) using  [NvChad](https://github.com/NvChad/NvChad) 
+- [Neovim](https://neovim.io/) (7.0 or higher)
 - [Amethyst](https://ianyh.com/amethyst/)
 - [fzf](https://github.com/junegunn/fzf)
 
