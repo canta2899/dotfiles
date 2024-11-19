@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # NVM
 # export NVM_LAZY=1
 
@@ -8,7 +9,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#606060"
 
@@ -26,6 +27,12 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#606060"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+zstyle ':omz:plugins:nvm' lazy yes
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 plugins=(
   git
@@ -48,11 +55,6 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.zprofile
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -67,4 +69,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
+# zprof

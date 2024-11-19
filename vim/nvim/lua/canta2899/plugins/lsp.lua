@@ -6,6 +6,10 @@ for _, value in pairs(languages) do
 	end
 end
 
+local function isdeno()
+	return vim.loop.fs_stat(vim.loop.cwd() .. "/deno.json") ~= nil
+end
+
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
@@ -30,6 +34,20 @@ return {
 
 		config = function()
 			local lsp = require("lsp-zero").preset({})
+			local lspconfig = require("lspconfig")
+
+			-- Deno project setup
+			lspconfig.denols.setup({
+				on_attach = lsp.on_attach, -- This attaches your default keybindings, etc.
+				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+			})
+
+			-- Node.js project setup (only attach to Node projects)
+			lspconfig.ts_ls.setup({
+				on_attach = lsp.on_attach, -- This attaches your default keybindings, etc.
+				root_dir = lspconfig.util.root_pattern("package.json"),
+				single_file_support = true, -- Disable tsserver for single files (helps prevent conflicts with Deno)
+			})
 
 			lsp.on_attach(function(_, bufnr)
 				lsp.default_keymaps({ buffer = bufnr })
@@ -38,7 +56,6 @@ return {
 			local cmp = require("cmp")
 			local cmp_action = require("lsp-zero").cmp_action()
 
-			-- going back from go to definition is C-o
 			cmp.setup({
 				mapping = {
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -65,12 +82,24 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					-- Conform will run multiple formatters sequentially
-					python = { "isort", "black" },
+					python = { "black" },
 					-- Use a sub-list to run only the first available formatter
-					javascript = { { "prettierd", "prettier" } },
-					typescript = { { "prettierd", "prettier" } },
-					typescriptreact = { { "prettier" } },
-					javascriptreact = { { "prettier" } },
+					javascript = { "prettier" },
+					typescript = function()
+						if isdeno() then
+							return { "deno_fmt" }
+						else
+							return { "prettier" }
+						end
+					end,
+					typescriptreact = function()
+						if isdeno() then
+							return { "deno_fmt" }
+						else
+							return { "prettier" }
+						end
+					end,
+					javascriptreact = { "prettier" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()

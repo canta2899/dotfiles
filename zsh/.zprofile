@@ -43,8 +43,6 @@ alias sed="gsed"
 
 alias date="gdate"
 
-alias gouni='tmux new-window -n uni -c $UNIPATH'
-
 alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
 # -- PATH -- 
