@@ -29,6 +29,8 @@ alias ta='tmux attach -t'
 
 alias vim="nvim"
 
+alias v="nvim"
+
 alias nc="netcat"
 
 alias ii="open"
