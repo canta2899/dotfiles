@@ -19,7 +19,12 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local nvtree = require("nvim-tree")
-			nvtree.setup()
+			nvtree.setup({
+				diagnostics = {
+					enable = true,
+					show_on_dirs = true,
+				},
+			})
 			vim.keymap.set("n", "<C-n>", vim.cmd.NvimTreeToggle)
 			--
 			-- other commands are
