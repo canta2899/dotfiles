@@ -113,6 +113,9 @@ return {
 					["<C-f>"] = cmp_action.luasnip_jump_forward(),
 					["<C-b>"] = cmp_action.luasnip_jump_backward(),
 				},
+				experimental = {
+					ghost_text = true,
+				},
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
@@ -158,5 +161,8 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"github/copilot.vim",
 	},
 }
