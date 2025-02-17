@@ -15,7 +15,7 @@ alias icloud='cd $CLOUDDOCS'
 
 alias ztc="zerotier-cli"
 
-alias ls='logo-ls -D'
+alias ls='logo-ls -Dh'
 
 alias we="du -d 0 -h"
 
@@ -34,10 +34,6 @@ alias v="nvim"
 alias nc="netcat"
 
 alias ii="open"
-
-alias startvnc="/Applications/RealVNC/VNC\ Server.app/Contents/MacOS/vncserver_service"
-
-alias vncserver="/Library/vnc/vncserver"
 
 alias gdu="$HOME/go/bin/gdu"
 
@@ -66,14 +62,10 @@ PATH="/usr/local/opt/php/bin:$PATH"
 PATH="/usr/local/opt/php/sbin:$PATH"
 # Apache
 PATH="/usr/local/opt/httpd/bin:$PATH"
-# Flutter
-PATH="$PATH:$HOME/development/flutter/bin"
 # Cargo
 PATH="$HOME/.cargo/bin:$PATH"
 # Go
 PATH="$PATH:$HOME/go/bin"
-# Coq (because older coq is needed for exercises)
-PATH="/Applications/CoqIDE_8.13.1.app/Contents/Resources/bin:$PATH"
 # Ghcup
 PATH="$HOME/.ghcup/bin:$PATH"
 export PATH
@@ -86,7 +78,7 @@ export EDITOR="nvim"
 # Usage consists of "envon [path_to_env folder]" and "deactivate"
 # And then "envoff" to deactivate the current environment if activated
 
-envon(){
+pyenvon(){
   RED='\033[0;31m'
   GREEN='\033[0;32m'
   ORANGE='\033[1;33m'
@@ -103,7 +95,7 @@ envon(){
   fi
 }
 
-envoff(){
+pyenvoff(){
   deactivate > /dev/null 2>&1
   if [ $? -eq 0 ]; then
     echo "Environment deactivated"
