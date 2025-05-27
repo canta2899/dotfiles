@@ -99,6 +99,7 @@ return {
                 single_file_support = true, -- Disable tsserver for single files (helps prevent conflicts with Deno)
             })
 
+
             lsp.on_attach(function(_, bufnr)
                 lsp.default_keymaps({ buffer = bufnr })
             end)

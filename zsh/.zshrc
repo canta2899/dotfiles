@@ -70,3 +70,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 # zprof
+
+[ -f "/Users/andrea/.ghcup/env" ] && . "/Users/andrea/.ghcup/env" # ghcup-env
