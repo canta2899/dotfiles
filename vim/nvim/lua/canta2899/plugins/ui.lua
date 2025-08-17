@@ -25,6 +25,13 @@ return {
                     enable = true,
                     show_on_dirs = true,
                 },
+                git = {
+                    ignore = false
+                },
+                filters = {
+                    dotfiles = false,
+                    custom = { '.git', '.DS_Store' },
+                },
             })
             vim.keymap.set("n", "<C-n>", vim.cmd.NvimTreeToggle)
             vim.api.nvim_create_autocmd("BufEnter", {

@@ -72,3 +72,10 @@ unset __conda_setup
 # zprof
 
 [ -f "/Users/andrea/.ghcup/env" ] && . "/Users/andrea/.ghcup/env" # ghcup-env
+# pnpm
+export PNPM_HOME="/Users/andrea/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
