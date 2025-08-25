@@ -9,6 +9,7 @@ mkdir -p $CFG/conf.d $CFG/functions
 # symlinks
 ln -sf $DOTFILES/conf.d/aliases.fish $CFG/conf.d/aliases.fish
 ln -sf $DOTFILES/config.fish $CFG/config.fish
+ln -sf $DOTFILES/conf.d/abbreviations.fish $CFG/conf.d/abbreviations.fish
 
 for f in $DOTFILES/functions/*.fish
     ln -sf $f $CFG/functions/(basename $f)
@@ -20,6 +21,11 @@ if not functions -q fisher
     fisher install jorgebucaran/fisher
 end
 
-fisher install jorgebucaran/nvm.fish
-fisher install jethrokuan/z
-fisher install IlanCosman/tide@v6
+set -l wanted_plugins jorgebucaran/nvm.fish jethrokuan/z ilancosman/tide@v6
+set -l installed (fisher list)
+
+for p in $wanted_plugins
+    if not contains -- $p $installed
+        fisher install $p
+    end
+end

@@ -1,13 +1,9 @@
-local languages = require("canta2899.languages")
-local servers = {}
-for _, value in pairs(languages) do
-    if value.lsp then
-        servers[#servers + 1] = value.lsp
-    end
-end
-
-local function isdeno()
-    return vim.loop.fs_stat(vim.loop.cwd() .. "/deno.json") ~= nil
+local function is_deno_buf(bufnr)
+    bufnr = bufnr or 0
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    local start = (fname ~= "" and vim.fs.dirname(fname)) or vim.loop.cwd()
+    local hits = vim.fs.find({ "deno.json", "deno.jsonc" }, { path = start, upward = true, type = "file" })
+    return #hits > 0
 end
 
 return {
@@ -83,8 +79,10 @@ return {
         },
 
         config = function()
-            local lsp = require("lsp-zero").preset({})
+            local lsp = require("lsp-zero").preset("recommended")
             local lspconfig = require("lspconfig")
+
+            lsp.setup()
 
             -- Deno project setup
             lspconfig.denols.setup({
@@ -94,9 +92,9 @@ return {
 
             -- Node.js project setup (only attach to Node projects)
             lspconfig.ts_ls.setup({
-                on_attach = lsp.on_attach,  -- This attaches your default keybindings, etc.
+                on_attach = lsp.on_attach, -- This attaches your default keybindings, etc.
                 root_dir = lspconfig.util.root_pattern("package.json"),
-                single_file_support = true, -- Disable tsserver for single files (helps prevent conflicts with Deno)
+                single_file_support = false,
             })
 
 
@@ -123,9 +121,6 @@ return {
                     end,
                 },
             })
-
-            lsp.preset("recommended")
-            lsp.setup()
         end,
     },
     {
@@ -134,42 +129,34 @@ return {
         config = function()
             require("conform").setup({
                 formatters = {
-                    prettier = {
-                        require_cwd = true,
-                    },
+                    prettier = { require_cwd = true },
                 },
                 formatters_by_ft = {
-
                     go = { "goimports", "gofmt" },
-
                     python = { "black" },
 
-                    javascript = { "prettier" },
-
-                    json = { "prettier" },
-
-                    yaml = { "prettier" },
-
-                    typescript = function()
-                        if isdeno() then
-                            return { "deno_fmt" }
-                        else
-                            return { "prettier" }
-                        end
+                    -- Deno handles ts/tsx/js/jsx; choose per buffer
+                    typescript = function(bufnr)
+                        return is_deno_buf(bufnr) and { "deno_fmt" } or { "prettier" }
+                    end,
+                    typescriptreact = function(bufnr)
+                        return is_deno_buf(bufnr) and { "deno_fmt" } or { "prettier" }
+                    end,
+                    javascript = function(bufnr)
+                        return is_deno_buf(bufnr) and { "deno_fmt" } or { "prettier" }
+                    end,
+                    javascriptreact = function(bufnr)
+                        return is_deno_buf(bufnr) and { "deno_fmt" } or { "prettier" }
                     end,
 
-                    typescriptreact = function()
-                        if isdeno() then
-                            return { "deno_fmt" }
-                        else
-                            return { "prettier" }
-                        end
+                    json = function(bufnr)
+                        return is_deno_buf(bufnr) and { "deno_fmt" } or { "prettier" }
                     end,
-
-                    javascriptreact = { "prettier" },
+                    yaml = function(bufnr)
+                        return is_deno_buf(bufnr) and { "deno_fmt" } or { "prettier" }
+                    end,
                 },
                 format_on_save = {
-                    -- These options will be passed to conform.format()
                     timeout_ms = 500,
                     lsp_fallback = true,
                 },
