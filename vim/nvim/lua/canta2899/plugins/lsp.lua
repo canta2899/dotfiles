@@ -80,20 +80,20 @@ return {
 
         config = function()
             local lsp = require("lsp-zero").preset("recommended")
-            local lspconfig = require("lspconfig")
-
+            local util = require("lspconfig.util")
             lsp.setup()
 
+
             -- Deno project setup
-            lspconfig.denols.setup({
+            vim.lsp.config('denols', {
                 on_attach = lsp.on_attach, -- This attaches your default keybindings, etc.
-                root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+                root_dir = util.root_pattern("deno.json", "deno.jsonc"),
             })
 
             -- Node.js project setup (only attach to Node projects)
-            lspconfig.ts_ls.setup({
+            vim.lsp.config('ts_ls', {
                 on_attach = lsp.on_attach, -- This attaches your default keybindings, etc.
-                root_dir = lspconfig.util.root_pattern("package.json"),
+                root_dir = util.root_pattern("package.json"),
                 single_file_support = false,
             })
 
