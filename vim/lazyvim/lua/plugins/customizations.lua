@@ -1,6 +1,14 @@
 return {
   -- Nordic theme
-  { "AlexvZyl/nordic.nvim" },
+  {
+    "AlexvZyl/nordic.nvim",
+    opts = {
+      transparent = {
+        bg = true,
+        float = true,
+      },
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -17,6 +25,7 @@ return {
     opts = {
       notifier = { enabled = false },
       dashboard = { enabled = false },
+      scroll = { enabled = false },
       picker = {
         sources = {
           explorer = {
@@ -53,6 +62,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        marksman = { enabled = false },
         ruff = { mason = false },
       },
     },
