@@ -1,3 +1,0 @@
-defaults write -g ApplePressAndHoldEnabled -bool true
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
