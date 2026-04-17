@@ -4,3 +4,4 @@
 
 vim.opt.relativenumber = true
 vim.g.autoformat = true
+vim.opt.conceallevel = 0
