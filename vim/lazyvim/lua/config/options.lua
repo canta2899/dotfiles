@@ -5,3 +5,5 @@
 vim.opt.relativenumber = true
 vim.g.autoformat = true
 vim.opt.conceallevel = 0
+vim.opt.wrap = true
+vim.opt.linebreak = true
