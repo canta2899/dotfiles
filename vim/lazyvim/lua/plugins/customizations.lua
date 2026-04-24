@@ -25,7 +25,7 @@ return {
     opts = {
       notifier = { enabled = false },
       dashboard = { enabled = false },
-      scroll = { enabled = false },
+      scroll = { enabled = true },
       picker = {
         sources = {
           explorer = {
