@@ -1,34 +1,41 @@
 #!/bin/bash
 
-# Opens a repository's origin in browser
+get_protocol() {
+  local url="$1"
 
-url=$(git config --get remote.origin.url)
-branch=$(git rev-parse --abbrev-ref HEAD)
-service="github"
+  if [ -z "$url" ]; then
+    echo "Error: No remote found" >&2
+    return 1
+  fi
 
-if [[ "$url" == "" ]]; then
-    echo "No remote found"
-    exit 1
-fi
+  if [[ $url =~ ^(ssh://)?git@ ]]; then
+    echo -n "ssh"
+    return 0
+  elif [[ $url =~ ^https:// ]]; then
+    echo -n "http"
+    return 0
+  else
+    echo "Error: Unknown protocol" >&2
+    return 1
+  fi
+}
 
-remote=$(printf '%s' "$url" | cut -d ':' -f 1)
+openrepo() {
+  url=$(echo -n "https://$1/tree/$2")
+  open $url
+}
 
-if [[ $remote =~ ^.*gitlab.* ]]; then
-  service="gitlab"
-fi;
+ORIGIN_URL=$(git config --get remote.origin.url)
+ORIGIN_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+protocol=$(get_protocol "$ORIGIN_URL")
 
-
-# remote=$(printf '%s' "$(git config --get remote.origin.url)" | cut -d ':' -f 1)
-
-if [[ $url =~ ^git\@.* ]]; then
-    # ssh protocol
-    source=$(printf '%s' "$url" | cut -d ':' -f 2)
-    open "https://${service}.com/${source%.git}/tree/$branch"
-elif [[ $url =~ ^https\.* ]]; then
-    # http protocol
-    open "${url%.git}/tree/$branch"
+if [ "$protocol" = "ssh" ]; then
+  source=$(printf '%s' "$ORIGIN_URL" | sed -r 's/^ssh:\/\///' | sed -r 's/^git@//' | sed -r "s/:[0-9]*\/?/\//" | sed -r 's/\.git$//')
+  openrepo $source $ORIGIN_BRANCH
+elif [ "$protocol" = "http" ]; then
+  source=$(printf '%s' "$ORIGIN_URL" | sed -r 's/^https:\/\///' | sed -r 's/\.git$//' | sed -r "s/:[0-9]+\//\//")
+  openrepo $source $ORIGIN_BRANCH
 else
-    # Unkown protocol
-    echo "Unknown protocol"
+  echo "Nothing to do"
+  exit 1
 fi
-

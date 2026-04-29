@@ -4,7 +4,7 @@ return {
     "AlexvZyl/nordic.nvim",
     opts = {
       transparent = {
-        bg = true,
+        bg = false,
         float = true,
       },
     },
