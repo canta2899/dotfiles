@@ -26,6 +26,12 @@ return {
       notifier = { enabled = false },
       dashboard = { enabled = false },
       scroll = { enabled = true },
+      terminal = {
+        win = {
+          position = "float",
+          padding = 10,
+        },
+      },
       picker = {
         sources = {
           explorer = {
