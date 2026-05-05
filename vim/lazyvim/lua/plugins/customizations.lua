@@ -70,6 +70,20 @@ return {
       servers = {
         marksman = { enabled = false },
         ruff = { mason = false },
+        -- should source the environment before starting the server
+        pyright = {
+          before_init = function(_, config)
+            local venv = vim.fn.getcwd() .. "/.venv"
+            if vim.fn.isdirectory(venv) == 1 then
+              config.settings = config.settings or {}
+              config.settings.python = vim.tbl_deep_extend("force", config.settings.python or {}, {
+                pythonPath = venv .. "/bin/python",
+                venvPath = vim.fn.getcwd(),
+                venv = ".venv",
+              })
+            end
+          end,
+        },
       },
     },
   },
