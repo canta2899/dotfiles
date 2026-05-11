@@ -66,26 +66,33 @@ return {
   -- Use system ruff (installed via uv tool install ruff) instead of Mason's
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        marksman = { enabled = false },
-        ruff = { mason = false },
-        -- should source the environment before starting the server
-        pyright = {
-          before_init = function(_, config)
-            local venv = vim.fn.getcwd() .. "/.venv"
-            if vim.fn.isdirectory(venv) == 1 then
-              config.settings = config.settings or {}
-              config.settings.python = vim.tbl_deep_extend("force", config.settings.python or {}, {
-                pythonPath = venv .. "/bin/python",
-                venvPath = vim.fn.getcwd(),
-                venv = ".venv",
-              })
-            end
-          end,
-        },
-      },
-    },
+    opts = function(_, opts)
+      opts.servers = opts.servers or {}
+      opts.servers.marksman = { enabled = false }
+      opts.servers.ruff = { mason = false }
+
+      -- Register ty (not in nvim-lspconfig defaults yet)
+      local configs = require("lspconfig.configs")
+      if not configs.ty then
+        configs.ty = {
+          default_config = {
+            cmd = { "ty", "server" },
+            filetypes = { "python" },
+            root_dir = require("lspconfig.util").root_pattern(
+              "pyproject.toml",
+              "ty.toml",
+              "setup.py",
+              "setup.cfg",
+              "requirements.txt",
+              ".git"
+            ),
+            single_file_support = true,
+            settings = {},
+          },
+        }
+      end
+      opts.servers.ty = { mason = false }
+    end,
   },
 
   -- Bash LSP (no LazyVim extra available)
