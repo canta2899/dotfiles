@@ -1,18 +1,20 @@
 return {
-  -- Nordic theme
+  -- Kanagawa theme
   {
-    "AlexvZyl/nordic.nvim",
+    "rebelot/kanagawa.nvim",
     opts = {
-      transparent = {
-        bg = false,
-        float = true,
+      transparent = false,
+      theme = "wave",
+      background = {
+        dark = "wave",
+        light = "lotus",
       },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nordic",
+      colorscheme = "kanagawa",
     },
   },
 
