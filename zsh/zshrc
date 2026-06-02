@@ -1,3 +1,36 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH="$HOME/.config/oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+export _Z_DATA="$HOME/.config/zsh/.z"
+
+plugins=(
+    git
+    z
+    docker
+    docker-compose
+    zsh-autosuggestions
+    fzf
+    cp
+    nvm
+    ng
+)
+
+source $ZSH/oh-my-zsh.sh
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f "/Users/andrea/.ghcup/env" ] && . "/Users/andrea/.ghcup/env" # ghcup-env
+
+
 ## User configuration
 unsetopt nomatch
 
@@ -8,9 +41,11 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export LANG="en_US.UTF-8"
 source ~/.secrets
 
-# -- ALIASES --
+# -- HASHES --
 
-alias icloud='cd $CLOUDDOCS'
+hash -d icloud="$CLOUDDOCS"
+
+# -- ALIASES --
 
 alias ls='logo-ls -Dh'
 
@@ -41,14 +76,6 @@ alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponde
 alias sv="source .venv/bin/activate"
 
 export EDITOR="nvim"
-
-export DOTNET_ROOT="$HOME/.dotnet"
-export DOTNET_TOOLS="$DOTNET_ROOT/tools"
-export HOMEBREW_ROOT="/opt/homebrew/bin"
-export LOCAL_BIN="$HOME/.local/bin"
-export GO_BIN="$(go env GOPATH)/bin"
-export LLAMA_PATH="$HOME/.llama"
-PATH="$LOCAL_BIN:$LLAMA_PATH:$GO_BIN:$DOTNET_ROOT:$DOTNET_TOOLS:$HOMEBREW_ROOT:$PATH"
 
 whatismyip(){
   curl https://api.ipify.org\?format\=text
@@ -99,4 +126,6 @@ function y() {
 	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+
 

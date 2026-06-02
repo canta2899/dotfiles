@@ -1,0 +1,9 @@
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_TOOLS="$DOTNET_ROOT/tools"
+export HOMEBREW_ROOT="/opt/homebrew/bin"
+export LOCAL_BIN="$HOME/.local/bin"
+export GO_BIN="$(go env GOPATH)/bin"
+export LLAMA_PATH="$HOME/.llama"
+export OPENCODE="/$HOME/.opencode/bin"
+export PATH="$LOCAL_BIN:$LLAMA_PATH:$GO_BIN:$DOTNET_ROOT:$DOTNET_TOOLS:$HOMEBREW_ROOT:$OPENCODE:$PATH"
+
