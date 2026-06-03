@@ -72,28 +72,28 @@ return {
       opts.servers = opts.servers or {}
       opts.servers.marksman = { enabled = false }
       opts.servers.ruff = { mason = false }
-
-      -- Register ty (not in nvim-lspconfig defaults yet)
-      local configs = require("lspconfig.configs")
-      if not configs.ty then
-        configs.ty = {
-          default_config = {
-            cmd = { "ty", "server" },
-            filetypes = { "python" },
-            root_dir = require("lspconfig.util").root_pattern(
-              "pyproject.toml",
-              "ty.toml",
-              "setup.py",
-              "setup.cfg",
-              "requirements.txt",
-              ".git"
-            ),
-            single_file_support = true,
-            settings = {},
+      opts.servers.basedpyright = {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "standard",
+              diagnosticSeverityOverrides = {
+                reportArgumentType = "none",
+                reportAssignmentType = "none",
+                reportReturnType = "none",
+                reportGeneralTypeIssues = "none",
+                reportUnknownArgumentType = "none",
+                reportUnknownMemberType = "none",
+                reportUnknownVariableType = "none",
+                reportUnknownParameterType = "none",
+                reportMissingTypeStubs = "none",
+                reportAny = "none",
+                reportExplicitAny = "none",
+              },
+            },
           },
-        }
-      end
-      opts.servers.ty = { mason = false }
+        },
+      }
     end,
   },
 
@@ -101,7 +101,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
-      ensure_installed = { "bash-language-server", "shfmt" },
+      ensure_installed = { "bash-language-server", "shfmt", "basedpyright" },
     },
   },
 
