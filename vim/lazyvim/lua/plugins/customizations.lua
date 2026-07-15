@@ -4,7 +4,7 @@ return {
     "rebelot/kanagawa.nvim",
     opts = {
       transparent = false,
-      theme = "wave",
+      theme = "lotus",
       background = {
         dark = "wave",
         light = "lotus",
@@ -14,7 +14,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "kanagawa-dragon",
     },
   },
 

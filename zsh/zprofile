@@ -6,4 +6,3 @@ export GO_BIN="$(go env GOPATH)/bin"
 export LLAMA_PATH="$HOME/.llama"
 export OPENCODE="/$HOME/.opencode/bin"
 export PATH="$LOCAL_BIN:$LLAMA_PATH:$GO_BIN:$DOTNET_ROOT:$DOTNET_TOOLS:$HOMEBREW_ROOT:$OPENCODE:$PATH"
-
