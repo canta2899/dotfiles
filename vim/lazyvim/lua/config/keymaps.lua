@@ -18,3 +18,10 @@ pcall(vim.keymap.del, "o", "s")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+
+vim.keymap.set("n", "s", '"_s', { desc = "Substitute (no yank)" })
+vim.keymap.set("x", "s", '"_s', { desc = "Substitute (no yank)" })
+vim.keymap.set("n", "S", '"_S', { desc = "Substitute line (no yank)" })
+vim.keymap.set("x", "S", '"_S', { desc = "Substitute line (no yank)" })
+vim.keymap.set("x", "p", '"0p', { desc = "Paste from last yank (no yank)" })
+vim.keymap.set("x", "P", '"0p', { desc = "Paste from last yank (no yank)" })
