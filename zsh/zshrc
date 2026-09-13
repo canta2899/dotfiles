@@ -129,3 +129,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+
+# bun completions
+[ -s "/Users/andrea/.bun/_bun" ] && source "/Users/andrea/.bun/_bun"

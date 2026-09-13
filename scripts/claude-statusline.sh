@@ -3,6 +3,7 @@ input=$(cat)
 
 MODEL=$(echo "$input" | jq -r '.model.display_name')
 DIR=$(echo "$input" | jq -r '.workspace.current_dir')
+STYLE=$(echo "$input" | jq -r '.output_style.name // empty')
 SESSION_COST=$(echo "$input" | jq -r '.cost.total_cost_usd // 0')
 
 USED=$(echo "$input" | jq -r '((.context_window.total_input_tokens // 0) + (.context_window.total_output_tokens // 0))')
@@ -44,6 +45,7 @@ SESSION_COST_FMT=$(awk -v c="$SESSION_COST" 'BEGIN{printf "%.2f", c}')
 
 OUT="${CYAN}[$MODEL]${RESET} 📁 ${DIR##*/}"
 [ -n "$BRANCH" ] && OUT="$OUT | 🌿 $BRANCH"
+[ -n "$STYLE" ] && [ "$STYLE" != "default" ] && OUT="$OUT | 🎨 $STYLE"
 OUT="$OUT | ${PCT_COLOR}${USED_FMT}/${MAX_FMT} (${PCT}%)${RESET}"
 OUT="$OUT | ${MAGENTA}\$${SESSION_COST_FMT} ${RESET}"
 
