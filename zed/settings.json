@@ -10,6 +10,7 @@
     "auto_install_extensions": {
         "catppuccin": true,
         "vscode-icons-nestjs": true,
+        "zed-kanagawa": true,
     },
     "indent_guides": {
         "line_width": 1,
@@ -76,5 +77,5 @@
     },
     "ui_font_size": 16,
     "buffer_font_size": 15,
-    "theme": "Catppuccin Mocha",
+    "theme": "Kanagawa Dragon",
 }
