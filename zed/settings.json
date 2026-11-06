@@ -16,7 +16,6 @@
     "indent_guides": {
         "line_width": 1,
     },
-    "tab_size": 4,
     "vim": {
         "gdefault": true,
         "use_smartcase_find": false,
@@ -32,8 +31,10 @@
         "provider": "copilot",
     },
     "agent": {
+        "threads_sidebar": {
+            "position": "left",
+        },
         "dock": "right",
-        "sidebar_side": "left",
         "favorite_models": [],
         "model_parameters": [],
     },

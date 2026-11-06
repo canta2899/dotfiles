@@ -69,10 +69,6 @@ alias ii="open"
 
 alias gdu="$HOME/go/bin/gdu"
 
-alias sed="gsed"
-
-alias date="gdate"
-
 alias flushdnscache="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
 alias sv="source .venv/bin/activate"
