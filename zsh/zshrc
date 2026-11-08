@@ -51,6 +51,10 @@ hash -d icloud="$CLOUDDOCS"
 
 alias ls='logo-ls -Dh'
 
+alias lg='lazygit'
+
+alias h='herdr'
+
 alias we="du -d 0 -h"
 
 alias tn="tmux new-session -t"
