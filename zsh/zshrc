@@ -46,6 +46,7 @@ source ~/.secrets
 # -- HASHES --
 
 hash -d icloud="$CLOUDDOCS"
+hash -d dev=~/development
 
 # -- ALIASES --
 
