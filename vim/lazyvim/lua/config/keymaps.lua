@@ -32,3 +32,17 @@ vim.keymap.set("n", "C", '"_C')
 vim.keymap.set("x", "S", '"_S')
 vim.keymap.set("x", "p", '"_dP')
 vim.keymap.set("x", "P", '"_dP')
+
+-- Copy file path (relative to cwd) to the clipboard
+local function copy_to_clipboard(text)
+  vim.fn.setreg("+", text)
+  vim.notify("Copied: " .. text)
+end
+
+vim.keymap.set("n", "<leader>yp", function()
+  copy_to_clipboard(vim.fn.expand("%:."))
+end, { desc = "Copy file path" })
+
+vim.keymap.set("n", "<leader>yP", function()
+  copy_to_clipboard(vim.fn.expand("%:.") .. ":" .. vim.fn.line("."))
+end, { desc = "Copy file path:line" })
