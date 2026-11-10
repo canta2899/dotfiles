@@ -112,4 +112,32 @@ return {
       servers = { bashls = {} },
     },
   },
+
+  -- Trouble: show symbols (<leader>cs) and LSP refs/defs (<leader>cS) in a centered float
+  {
+    "folke/trouble.nvim",
+    opts = function(_, opts)
+      local float = {
+        type = "float",
+        relative = "editor",
+        border = "rounded",
+        position = { 0.5, 0.5 },
+        size = { width = 0.7, height = 0.7 },
+        zindex = 200,
+      }
+      opts.modes = opts.modes or {}
+      opts.modes.symbols = vim.tbl_deep_extend("force", opts.modes.symbols or {}, {
+        win = float,
+        focus = true,
+        keys = { q = "close", ["<esc>"] = "close", ["<cr>"] = "jump_close", ["<tab>"] = "jump" },
+        preview = { type = "main", scratch = true },
+      })
+      opts.modes.lsp = vim.tbl_deep_extend("force", opts.modes.lsp or {}, {
+        win = float,
+        focus = true,
+        keys = { q = "close", ["<esc>"] = "close", ["<cr>"] = "jump_close", ["<tab>"] = "jump" },
+        preview = { type = "main", scratch = true },
+      })
+    end,
+  },
 }
