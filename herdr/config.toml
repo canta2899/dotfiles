@@ -1,0 +1,10 @@
+onboarding = false
+
+[theme]
+name = "vesper"
+auto_switch = false
+
+[keys]
+previous_agent = "prefix+u"
+next_agent     = "prefix+i"
+focus_agent    = "prefix+alt+1..9"
